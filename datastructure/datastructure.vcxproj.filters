@@ -21,7 +21,7 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\dd\hello\ch1.h">
+    <ClInclude Include="ch1.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,16 +29,19 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dd\hello\printN.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dd\hello\counttick.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\dd\hello\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dd\hello\polynomial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="maxsubseqsum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="printN.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="count_tick.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

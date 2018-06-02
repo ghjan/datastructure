@@ -147,21 +147,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\dd\hello\ch1.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ch1.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\dd\hello\counttick.cpp" />
-    <ClCompile Include="..\..\dd\hello\main.cpp" />
-    <ClCompile Include="..\..\dd\hello\polynomial.cpp" />
-    <ClCompile Include="..\..\dd\hello\printN.cpp" />
+    <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
+    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="count_tick.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="maxsubseqsum.cpp" />
+    <ClCompile Include="printN.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
