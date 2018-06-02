@@ -1,4 +1,4 @@
 .vs/*
-Debug/**
-datastructure/Debug/**
+Debug
+datastructure/Debug
 .obj
