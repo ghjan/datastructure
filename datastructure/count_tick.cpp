@@ -17,3 +17,13 @@ double count_tick(double pf(int , double [], double ), int count) {
 	return (double)(stop - start) / CLK_TCK;
 
 }
+
+double count_tick_2(int pf(int[], int ), int A[], int N) {
+
+	clock_t start, stop;
+	start = clock();
+		pf(A, N);
+	stop = clock();
+	return (double)(stop - start) / CLK_TCK;
+
+}
