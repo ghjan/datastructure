@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  counttick.cpp
+  main.cpp
+e:\cworkspace\dd\hello\main.cpp(14): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  polynomial.cpp
+  printN.cpp
+  正在生成代码...
+  datastructure.vcxproj -> E:\cworkspace\datastructure\Debug\datastructure.exe
