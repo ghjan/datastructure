@@ -26,7 +26,7 @@ bool Empty_ss(Stack_ss *s)
 //ÅÐ¶ÏÕ»ÊÇ·ñÒÑÂúÁË  
 bool full_ss(Stack_ss *s)
 {
-	if (s->top == maxsize - 1)
+	if (s->top == maxsize_ss - 1)
 	{
 		return true;
 	}

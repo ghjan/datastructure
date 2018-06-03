@@ -8,7 +8,7 @@
 //³õÊ¼»¯Õ»  
 void init_sc(Stack_chain *s)
 {
-	s->data = (datatype_sc *)malloc(sizeof(datatype_sc)*maxsize);
+	s->data = (datatype_sc *)malloc(sizeof(datatype_sc)*maxsize_sc);
 	s->top = -1;
 }
 

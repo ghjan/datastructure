@@ -1,11 +1,11 @@
 #pragma once
-#define maxsize 10  
+#define maxsize_ss 10  
 typedef int datatype_ss;
 
 //Sequence Stack_ss 实现顺序栈，使用数组来实现  
 struct stack_ss
 {
-	datatype_ss data[maxsize];
+	datatype_ss data[maxsize_ss];
 	int top;
 };
 

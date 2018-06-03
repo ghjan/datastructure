@@ -150,8 +150,6 @@
     <ClInclude Include="ch2.h" />
     <ClInclude Include="DynamicStack1.0.h" />
     <ClInclude Include="SequenceStack1.0.h" />
-    <ClInclude Include="stack_static.h" />
-    <ClInclude Include="stack_dynamic.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ch1.h" />
@@ -165,8 +163,6 @@
     <ClCompile Include="list_2.cpp" />
     <ClCompile Include="stack_array.cpp" />
     <ClCompile Include="stack_chain.cpp" />
-    <ClCompile Include="stack_dynamic.cpp" />
-    <ClCompile Include="stack_static.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

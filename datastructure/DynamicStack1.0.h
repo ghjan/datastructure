@@ -1,5 +1,5 @@
 #pragma once
-#define maxsize 10  
+#define maxsize_sc 10  
 typedef int datatype_sc;
 
 //Sequence Stack_chain 实现顺序栈，使用数组来实现  
@@ -12,7 +12,7 @@ struct stack_chain
 typedef struct stack_chain Stack_chain;
 //创建栈  
 
-int realsize = maxsize;
+int realsize = maxsize_sc;
 
 
 //初始化栈  
