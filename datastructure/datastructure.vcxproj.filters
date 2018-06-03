@@ -24,15 +24,15 @@
     <ClInclude Include="ch1.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ch2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dd\hello\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\dd\hello\polynomial.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="maxsubseqsum.cpp">
@@ -42,6 +42,24 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="count_tick.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\datastructure\datastructure\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="list_1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="list_2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="list_1_2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

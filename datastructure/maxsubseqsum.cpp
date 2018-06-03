@@ -3,12 +3,12 @@
 #include "ch1.h"
 using namespace std;
 
-int MaxSubsequenceSum1(int A[], int N)
+int MaxSubsequenceSum1(int A[], int NN)
 {
 	int ThisSum, MaxSum = 0;
 	int i, j, k;
-	for (i = 0;i < N;i++) {
-		for (j = i;j < N;j++) {
+	for (i = 0;i < NN;i++) {
+		for (j = i;j < NN;j++) {
 			ThisSum = 0;
 			for (k = i;k <= j;k++)
 				ThisSum += A[k];
@@ -20,13 +20,13 @@ int MaxSubsequenceSum1(int A[], int N)
 }
 
 
-int MaxSubsequenceSum2(int A[], int N)
+int MaxSubsequenceSum2(int A[], int NN)
 {
 	int ThisSum, MaxSum = 0;
 	int i, j, k;
-	for (i = 0;i < N;i++) {
+	for (i = 0;i < NN;i++) {
 		ThisSum = 0;
-		for (j = i;j < N;j++) {
+		for (j = i;j < NN;j++) {
 			ThisSum += A[j];
 			if (ThisSum > MaxSum)
 				MaxSum = ThisSum;
@@ -80,19 +80,19 @@ int DivideAndConquer(int List[], int left, int right)
 }
 
 //算法3：分而治之
-int MaxSubsequenceSum3(int A[], int N)
+int MaxSubsequenceSum3(int A[], int NN)
 { /* 保持与前2种算法相同的函数接口 */
-	return DivideAndConquer(A, 0, N - 1);
+	return DivideAndConquer(A, 0, NN - 1);
 }
 
 //算法4：在线处理
 
-int MaxSubsequenceSum4(int A[], int N)
+int MaxSubsequenceSum4(int A[], int NN)
 {
 	int ThisSum, MaxSum;
 	int i;
 	ThisSum = MaxSum = 0;
-	for (i = 0; i < N; i++) {
+	for (i = 0; i < NN; i++) {
 		ThisSum += A[i];//向右累加
 		if (ThisSum>MaxSum)
 			MaxSum = ThisSum; // 发现更大和则更新当前结果
