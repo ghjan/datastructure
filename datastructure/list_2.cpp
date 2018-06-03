@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Position GetPos(List L, ElemType X)
+Position Find(List L, ElemType X)
 {
 	Position p = L; /* p指向L的第1个结点 */
 
@@ -21,7 +21,7 @@ Position GetPos(List L, ElemType X)
 		return ERROR_PTR;
 }
 
-int GetPos1(List L, ElemType X)
+int GetPos(List L, ElemType X)
 {
 	Position p = L; /* p指向L的第1个结点 */
 	int i = 0;
@@ -218,7 +218,7 @@ int demo_list_2()
 		{
 			printf("Please input the value:\n");
 			scanf_s("%d", &value);
-			pos = GetPos1(L, value);
+			pos = GetPos(L, value);
 			printf("Get value=%d's position is %d\n", value, pos);
 			ShowList(L);
 			break;

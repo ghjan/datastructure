@@ -21,7 +21,7 @@ int GetLength(List1 L)
 	return L->Last+1;
 }
 
-Position1 GetPos(List1 L, ElemType X)
+Position1 Find(List1 L, ElemType X)
 {
 	Position1 i = 0;
 
@@ -163,7 +163,7 @@ int demo_list_1_2()
 		{
 			printf("Please input the value:\n");
 			scanf_s("%d", &value);
-			pos = GetPos(L, value);
+			pos = Find(L, value);
 			printf("Get value=%d's position is %d\n", value, pos);
 			ShowList(L);
 			break;

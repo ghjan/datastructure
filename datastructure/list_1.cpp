@@ -70,7 +70,7 @@ ElemType GetValue(sqlist *L, int i)
 }
 
 //获取顺序表某个值的位置  
-int GetPos(sqlist *L, ElemType value)
+int Find(sqlist *L, ElemType value)
 {
 	int pos;
 	int judeflag = 1;
@@ -189,7 +189,7 @@ int demo_list_1()
 		{
 			printf("Please input the value:\n");
 			scanf_s("%d", &value);
-			pos = GetPos(&L, value);
+			pos = Find(&L, value);
 			printf("Get value=%d's position is %d\n", value, pos);
 			ShowList(&L);
 			break;
