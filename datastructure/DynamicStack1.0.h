@@ -12,9 +12,6 @@ struct stack_chain
 typedef struct stack_chain Stack_chain;
 //创建栈  
 
-int realsize = maxsize_sc;
-
-
 //初始化栈  
 void init_sc(Stack_chain *s);
 //判断栈是否为空 

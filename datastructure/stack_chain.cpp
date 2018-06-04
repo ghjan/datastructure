@@ -5,6 +5,8 @@
 #include <assert.h>
 #include "DynamicStack1.0.h"  
 
+int realsize = maxsize_sc;
+
 //初始化栈  
 void init_sc(Stack_chain *s)
 {
@@ -85,7 +87,7 @@ int demo_stack_chain()
 	printf("----------------------------------");
 	//入栈操作  
 	printf("\n###########入栈操作###########\n");
-	for (i = 0;i <= 10;i++)
+	for (i = 0; i <= 10; i++)
 	{
 		Push_sc(s, i);
 	}
@@ -103,19 +105,32 @@ int demo_stack_chain()
 	printf("----------------------------------");
 	//出栈操作  
 	printf("\n###########出栈操作###########\n");
-	for (i = 0;i <= 12;i++)
+	for (i = 0; i <= 12; i++)
 	{
 		Pop_sc(s);
 	}
 	printf("----------------------------------");
 	//取栈顶元素      
 	printf("\n###########取栈顶元素###########\n");
-	Top_sc(s);
-	printf("----------------------------------");
+	if (!Empty_sc(s))
+	{
+		printf("%d\n", Top_sc(s));
+	}
+	else
+	{
+		printf("栈空\n");
+	}	printf("----------------------------------");
 	//销毁栈  
 	printf("\n###########销毁栈###########\n");
 	Push_sc(s, 10);
 	Destroy_sc(s);
-	Top_sc(s);
+	if (!Empty_sc(s))
+	{
+		printf("%d\n", Top_sc(s));
+	}
+	else
+	{
+		printf("栈空\n");
+	}
 	return 0;
 }
