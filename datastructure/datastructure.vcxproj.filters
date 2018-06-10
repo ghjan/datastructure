@@ -39,6 +39,12 @@
     <ClInclude Include="primefactor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="queue_link.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="queue_sequence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -78,6 +84,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="primefactor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="queue_link.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="queue_sequence.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
