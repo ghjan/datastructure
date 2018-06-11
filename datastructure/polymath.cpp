@@ -60,12 +60,48 @@ Polynomial PolyAdd(Polynomial P1, Polynomial P2)
 	free(temp);/*释放临时空表头结点*/
 	return front;
 }
-/*
+
+
+//多项式乘法
 Polynomial PolyMul(Polynomial P1, Polynomial P2)
 {
+	PolyNode *tail2 = P2;
+	int len1 = sizeof(P1) / sizeof(PolyNode);
+	int len2 = sizeof(P2) / sizeof(PolyNode);
+	Polynomial *pp = new Polynomial[len2];
+	int index = 0;
+	while (tail2 != NULL) {
+		PolyNode *tail1 = P1;
+		Polynomial polynomial = (Polynomial)malloc(sizeof(PolyNode));
+		Initialize(polynomial);
+		PolyNode *tail = polynomial;
+		pp[index++] = polynomial;
 
+		for (int i = 0; tail1 != NULL && i < len1; ++i) {
+			PolyNode * node = (PolyNode *)malloc(sizeof(PolyNode));
+			node->coef = tail1->coef*tail2->coef;
+			node->expon = tail1->expon + tail2->expon;
+			node->link = NULL;
+			tail->link = node;
+			tail = node;
+			tail1 = tail1->link;
+		}
+		tail = tail->link;
+	}
+
+	Polynomial sum = NULL;
+	for (int k = 0; k < len2; k += 2)
+	{
+		if (k == 0) {
+			sum = PolyAdd(pp[k], pp[k + 1]);
+		}
+		else {
+			sum = PolyAdd(sum, pp[k]);
+		}
+	}
+	return sum;
 }
-*/
+
 //初始化
 void Initialize(Polynomial polynomial) {
 	PolyNode *head = (PolyNode *)malloc(sizeof(PolyNode));
@@ -136,9 +172,16 @@ void subPolynomial(Polynomial listA, Polynomial listB) {
 		PolyNodeB = PolyNodeB->link;
 	}
 }
+
+int polymul_demo()
+{
+	//相乘
+	Polynomial mul = PolyMul(p1, p2);
+	printPolynomial(mul);
+}
 */
 
-int polymath_demo()
+int polyadd_demo()
 {
 	//系数
 	int coef1[5] = { 2, 3, 5, -3, 9 };
@@ -180,10 +223,12 @@ int polymath_demo()
 	//相加
 	Polynomial sum = PolyAdd(p1, p2);
 	printPolynomial(sum);
+	return 0;
+}
 
-	//相乘
-	Polynomial mul = PolyMul(p1, p2);
-	printPolynomial(mul);
+int polymath_demo()
+{
 
+	polyadd_demo();
 	return 0;
 }
