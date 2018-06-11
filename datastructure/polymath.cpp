@@ -8,7 +8,7 @@
 #include "sort.h"
 #include "utils.h"
 
-//放到尾巴上
+//放到多项式尾巴上
 void Attach(int coef, int expon, Polynomial* PtrRear)
 {
 	/*由于在本函数中需要改变当前结构表达式尾项指针的值，*/
@@ -17,11 +17,13 @@ void Attach(int coef, int expon, Polynomial* PtrRear)
 	Polynomial poly = (Polynomial)malloc(sizeof(PolyNode));/*申请新结点*/
 	poly->coef = coef;
 	poly->expon = expon;
+	poly->link = NULL;
 	/*将P指向的新结点插入到当前结果表达式尾项的后面*/
 	(*PtrRear)->link = poly;
 	*PtrRear = poly;/*修改PtrRear值*/
 }
 
+//多项式加法
 Polynomial PolyAdd(Polynomial P1, Polynomial P2)
 {
 	Polynomial front, rear, temp;
@@ -61,23 +63,41 @@ Polynomial PolyAdd(Polynomial P1, Polynomial P2)
 	return front;
 }
 
+//从标准输入读入多项式
+Polynomial ReadPoly()
+{
+	Polynomial p, rear, t;
+	int c, e, N;
+	printf("输入多项式项目数\n");
+	scanf_s("%d", &N,5);
+	p = (Polynomial)malloc(sizeof(PolyNode));
+	p->link = NULL;
+	rear = p;
+	printf("输入多项式各项：系数 指数\n");
+	while (N--) {
+		scanf_s("%d %d", &c, &e,10);
+		Attach(c, e, &rear);
+	}
+	t = p; p = p->link; free(t);//释放临时头节点
+	printPolynomial(p);
+	return p;
+}
 
 //多项式乘法
 Polynomial PolyMul(Polynomial P1, Polynomial P2)
 {
 	PolyNode *tail2 = P2;
-	int len1 = sizeof(P1) / sizeof(PolyNode);
-	int len2 = sizeof(P2) / sizeof(PolyNode);
-	Polynomial *pp = new Polynomial[len2];
+
 	int index = 0;
+	Polynomial result = NULL;
+	bool flag = false;
 	while (tail2 != NULL) {
 		PolyNode *tail1 = P1;
 		Polynomial polynomial = (Polynomial)malloc(sizeof(PolyNode));
 		Initialize(polynomial);
 		PolyNode *tail = polynomial;
-		pp[index++] = polynomial;
-
-		for (int i = 0; tail1 != NULL && i < len1; ++i) {
+		
+		for (int i = 0; tail1 != NULL; ++i) {
 			PolyNode * node = (PolyNode *)malloc(sizeof(PolyNode));
 			node->coef = tail1->coef*tail2->coef;
 			node->expon = tail1->expon + tail2->expon;
@@ -86,20 +106,19 @@ Polynomial PolyMul(Polynomial P1, Polynomial P2)
 			tail = node;
 			tail1 = tail1->link;
 		}
-		tail = tail->link;
-	}
-
-	Polynomial sum = NULL;
-	for (int k = 0; k < len2; k += 2)
-	{
-		if (k == 0) {
-			sum = PolyAdd(pp[k], pp[k + 1]);
+		tail = polynomial; polynomial = polynomial->link; free(tail);//释放临时的头
+		if (!flag) {
+			result = polynomial;
+			flag = true;
 		}
 		else {
-			sum = PolyAdd(sum, pp[k]);
+			result = PolyAdd(result, polynomial);
 		}
+		tail2 = tail2->link;
+
 	}
-	return sum;
+
+	return result;
 }
 
 //初始化
@@ -110,8 +129,20 @@ void Initialize(Polynomial polynomial) {
 }
 
 
-//跟据系数矩阵和指数矩阵创建多项式链表
+//根据系数矩阵和指数矩阵创建多项式链表
 Polynomial createPolynomial(int *coef, int *exp, int length) {
+
+	int *new_order = new int[length];
+	for (int i = 0; i < length; i++) {
+		new_order[i] = i;
+	}
+	sort_ordered(exp, length, new_order);
+	printf("排序后的exp数组为：\n");
+	print_array(exp, length);
+	int *coef_o = clone_ordered(coef, length, new_order);
+	printf("排序后的coef_o数组为：\n");
+	print_array(coef_o, length);
+
 	Polynomial polynomial = (Polynomial)malloc(sizeof(PolyNode));
 	Initialize(polynomial);
 	PolyNode *tail = polynomial;
@@ -119,13 +150,73 @@ Polynomial createPolynomial(int *coef, int *exp, int length) {
 
 	for (int i = 0; i < length; ++i) {
 		PolyNode * node = (PolyNode *)malloc(sizeof(PolyNode));
-		node->coef = coef[i];
+		node->coef = coef_o[i];
 		node->expon = exp[i];
 		node->link = NULL;
 		tail->link = node;
 		tail = node;
 	}
 	return polynomial->link;
+}
+
+Polynomial clonePolymialOrdered(Polynomial poly)
+{
+	int length = 0;
+	PolyNode *tail = poly;
+	while (tail != NULL) {
+		length++;
+	}
+
+	int *new_order = new int[length];
+	for (int i = 0; i < length; i++) {
+		new_order[i] = i;
+	}
+	int *exp = new int[length],
+		*coef = new int[length];
+	tail = poly;
+	for(int i=0;i<length && tail;i++) {
+		exp[i] = tail->expon;
+		coef[i] = tail->coef;
+		tail = tail->link;
+	}
+	return createPolynomial(coef, exp, length);
+}
+
+void PolySort(Polynomial poly) {
+	int length = 0;
+	PolyNode *tail = poly;
+	while (tail != NULL) {
+		length++;
+		tail = tail->link;
+	}
+
+	int *new_order = new int[length];
+	for (int i = 0; i < length; i++) {
+		new_order[i] = i;
+	}
+	int *exp = new int[length],
+		*coef = new int[length];
+	tail = poly;
+	for (int i = 0; i<length && tail; i++) {
+		exp[i] = tail->expon;
+		coef[i] = tail->coef;
+		tail = tail->link;
+	}
+
+	sort_ordered(exp, length, new_order);
+	printf("排序后的exp数组为：\n");
+	print_array(exp, length);
+	int *coef_o = clone_ordered(coef, length, new_order);
+	printf("排序后的coef_o数组为：\n");
+	print_array(coef_o, length);
+
+	tail = poly;
+	for (int i = 0; i<length && tail; i++) {
+		tail->expon = exp[i];
+		tail->coef = coef_o[i];
+		tail = tail->link;
+	}
+
 }
 
 
@@ -173,12 +264,6 @@ void subPolynomial(Polynomial listA, Polynomial listB) {
 	}
 }
 
-int polymul_demo()
-{
-	//相乘
-	Polynomial mul = PolyMul(p1, p2);
-	printPolynomial(mul);
-}
 */
 
 int polyadd_demo()
@@ -188,34 +273,14 @@ int polyadd_demo()
 	//指数
 	int exp1[5] = { 2, 5, 4, 7, 6 };
 
-	int *new_order = new int[5];
-	for (int i = 0; i < 5; i++) {
-		new_order[i] = i;
-	}
-	sort_ordered(exp1, 5, new_order);
-	printf("排序后的exp1数组为：\n");
-	print_array(exp1, 5);
-	int *coef1_o = clone_ordered(coef1, 5, new_order);
-	printf("排序后的coef1_o数组为：\n");
-	print_array(coef1_o, 5);
-	Polynomial p1 = createPolynomial(coef1_o, exp1, 5);
+	Polynomial p1 = createPolynomial(coef1, exp1, 5);
 	puts("------ p1: ------");
 	printPolynomial(p1);
 
 	int coef2[6] = { 5, 4, 5, -6, 1, 5 };
 	int exp2[6] = { 3, 8, 4, 6, 2, 7 };
 
-	int *new_order2 = new int[6];
-	for (int i = 0; i < 6; i++) {
-		new_order2[i] = i;
-	}
-	sort_ordered(exp2, 6, new_order2);
-	printf("排序后的exp2数组为：\n");
-	print_array(exp2, 6);
-	int *coef2_o = clone_ordered(coef2, 6, new_order2);
-	printf("排序后的coef2_o数组为：\n");
-	print_array(coef2_o, 6);
-	Polynomial p2 = createPolynomial(coef2_o, exp2, 6);
+	Polynomial p2 = createPolynomial(coef2, exp2, 6);
 	puts("------ p2: ------");
 	printPolynomial(p2);
 
@@ -226,9 +291,21 @@ int polyadd_demo()
 	return 0;
 }
 
+int polymul_demo()
+{
+	Polynomial p1 = ReadPoly();
+	Polynomial p2 = ReadPoly();
+	PolySort(p1);
+	PolySort(p2);
+	//相乘
+	Polynomial mul = PolyMul(p1, p2);
+	printPolynomial(mul);
+	return 0;
+}
+
 int polymath_demo()
 {
 
-	polyadd_demo();
+	polymul_demo();
 	return 0;
 }
