@@ -5,18 +5,29 @@
 #include "binary_search.h" 
 
 //二分查找算法
-int BinarySearch(StaticTable *Tbl, ElementType K)
-{
-	int left, right, mid, NoFound = -1;
-	left = 1;				/*初始化左边界*/
-	right = Tbl->Length;	/*初始化右边界*/
-	while (left <= right)
-	{
-		mid = (left + right) / 2;
-		if (K < Tbl->Element[mid])	right = mid - 1;
-		else if(K > Tbl->Element[mid])left = mid + 1;
-		else return mid;
+int binary_search(int aim, int data[], int size) {
+	int det = -1;
+	int left = 0;//定义left整数变量  
+	int right = size - 1;//定义right  
+	while (left <= right) {//在while循环中直到有一个条件结束搜索   
+		int mid = (left + right) / 2;
+		if (data[mid]<aim) {
+			left = mid + 1;
+		}
+		else if (data[mid]>aim) {
+			right = mid - 1;
+		}
+		else {
+			det = mid;
+			break;//一定要break跳出循环   
+		}
 	}
-	return NoFound;
+	return det;
+}
+int BinarySearch_demo() {
+	int data[] = { 5,7,9,11,13,17,24,47,68,72,89,90,112 };
+	printf("%d\n", binary_search(14, data, 13));//希望输出14所对应的索引号   
+	printf("%d\n", binary_search(13, data, 13));//希望输出13所对应的索引号   
+	return 0;
 
 }
