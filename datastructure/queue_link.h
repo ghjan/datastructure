@@ -29,4 +29,4 @@ bool EnQueue(LinkQueue *Lp, ElemType Elem);
 bool DeQueue(LinkQueue *Lp, ElemType *pe);
 /* 从队头到队尾依次对队列中每个元素输出 */
 bool QueueTraverse(LinkQueue LQ);
-int queue_link_demo(void);
+

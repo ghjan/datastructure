@@ -24,6 +24,8 @@ int binary_search(int aim, int data[], int size) {
 	}
 	return det;
 }
+
+
 int BinarySearch_demo() {
 	int data[] = { 5,7,9,11,13,17,24,47,68,72,89,90,112 };
 	printf("%d\n", binary_search(14, data, 13));//希望输出14所对应的索引号   

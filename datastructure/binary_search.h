@@ -16,6 +16,4 @@ int Length;
 };
 */
 
-
 int binary_search(int aim, int data[], int size);
-int BinarySearch_demo();

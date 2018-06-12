@@ -20,4 +20,4 @@ bool GetHead(SqQueue &Sq, ElemType *pe);
 bool EnQueue(SqQueue &Sq, ElemType Elem);
 bool DeQueue(SqQueue &Sq, ElemType *pe);
 bool QueueTraverse(SqQueue &Sq);
-int queue_sequence_demo(void);
+

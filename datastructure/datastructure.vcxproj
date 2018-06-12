@@ -148,10 +148,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
+    <ClInclude Include="bstree.h" />
     <ClInclude Include="ch2.h" />
+    <ClInclude Include="demo.h" />
     <ClInclude Include="DynamicStack1.0.h" />
     <ClInclude Include="polymath.h" />
     <ClInclude Include="primefactor.h" />
+    <ClInclude Include="queue_bstree.h" />
     <ClInclude Include="queue_link.h" />
     <ClInclude Include="queue_sequence.h" />
     <ClInclude Include="SequenceStack1.0.h" />
@@ -165,11 +168,14 @@
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
     <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
     <ClCompile Include="binary_search.cpp" />
+    <ClCompile Include="bstree.cpp" />
+    <ClCompile Include="bstree_test.cpp" />
     <ClCompile Include="count_tick.cpp" />
     <ClCompile Include="list_1_2.cpp" />
     <ClCompile Include="list_2.cpp" />
     <ClCompile Include="polymath.cpp" />
     <ClCompile Include="primefactor.cpp" />
+    <ClCompile Include="queue_bstree.cpp" />
     <ClCompile Include="queue_link.cpp" />
     <ClCompile Include="queue_sequence.cpp" />
     <ClCompile Include="sort.cpp" />

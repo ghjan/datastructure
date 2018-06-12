@@ -25,6 +25,3 @@ Polynomial ReadPoly();
 void printPolyNode(PolyNode node);
 //打印多项式
 void printPolynomial(Polynomial poly);
-int polyadd_demo();
-int polymul_demo();
-int polymath_demo();
