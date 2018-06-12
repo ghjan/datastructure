@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="binary_search.h" />
     <ClInclude Include="ch2.h" />
     <ClInclude Include="DynamicStack1.0.h" />
     <ClInclude Include="polymath.h" />
@@ -163,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
     <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="binary_search.cpp" />
     <ClCompile Include="count_tick.cpp" />
     <ClCompile Include="list_1_2.cpp" />
     <ClCompile Include="list_2.cpp" />

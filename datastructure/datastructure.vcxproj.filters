@@ -51,6 +51,9 @@
     <ClInclude Include="sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binary_search.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -102,6 +105,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="binary_search.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
