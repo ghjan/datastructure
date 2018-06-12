@@ -61,6 +61,9 @@ void bstree_demo()
 
 	printf("\n== 中序遍历: ");
 	inorder_bstree(root);
+
+	printf("\n== 中序遍历二叉树的叶子结点: ");
+	inorder_bstree_leaf(root);
 	printf("\n");
 
 	// 销毁二叉树

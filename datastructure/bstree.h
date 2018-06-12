@@ -18,6 +18,9 @@ void postorder_bstree(BSTree tree);
 //层级遍历"二叉树"
 void levelorder_bstree(BSTree tree);
 
+//中序遍历"二叉树"的叶子结点
+void inorder_bstree_leaf(BSTree tree);
+
 // (递归实现)查找"二叉树x"中键值为key的节点
 BSTreeNode* bstree_search(BSTree x, Type key);
 // (非递归实现)查找"二叉树x"中键值为key的节点

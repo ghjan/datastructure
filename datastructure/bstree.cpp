@@ -69,7 +69,19 @@ void levelorder_bstree(BSTree tree)
 	DestroyQueue(Q);
 }
 
-
+/*
+* 中序遍历"二叉树"的叶子结点
+*/
+void inorder_bstree_leaf(BSTree tree)
+{
+	if (tree != NULL)
+	{
+		inorder_bstree_leaf(tree->left);
+		if(!tree->left && !tree->right)
+			printf("%d ", tree->key);
+		inorder_bstree_leaf(tree->right);
+	}
+}
 /*
 * (递归实现)查找"二叉树x"中键值为key的节点
 */
@@ -348,4 +360,21 @@ void print_bstree(BSTree tree, Type key, int direction)
 		print_bstree(tree->left, tree->key, -1);
 		print_bstree(tree->right, tree->key, 1);
 	}
+}
+
+/*
+* 二叉树的高度
+*/
+int height(BSTree tree)
+{
+	int hl, hr, maxH;
+	if (tree != NULL)
+	{
+		hl = height(tree->left);	//左子树高度
+		hr = height(tree->right);	//右子树高度
+		maxH = (hl > hr) ? hl : hr;
+		return (maxH + 1);
+	}
+
+	return 0;
 }

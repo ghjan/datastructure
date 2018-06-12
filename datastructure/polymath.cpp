@@ -305,7 +305,7 @@ int polymul_demo()
 
 int polymath_demo()
 {
-
-	polymul_demo();
+	polyadd_demo();
+	//polymul_demo();
 	return 0;
 }
