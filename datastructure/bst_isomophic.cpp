@@ -48,17 +48,19 @@ int Isomorphic(TreeNode T1[], TreeNode T2[], Tree R1, Tree R2)
 {
 	if ((R1 == Null) && (R2 == Null))
 		return 1;
-	if (((R1 == Null) && (R2 != Null)) || ((R1 != Null) && (R2 == Null)))
+	else if (((R1 == Null) && (R2 != Null)) || ((R1 != Null) && (R2 == Null)))
 		return 0;
-	if (T1[R1].Element != T2[R2].Element)
+	else if (T1[R1].Element != T2[R2].Element)
 		return 0;
-	if ((T1[R1].Left == Null) && (T2[R2].Left == Null))
+	else if ((T1[R1].Left == Null) && (T2[R2].Left == Null))
 		return Isomorphic(T1, T2, T1[R1].Right, T2[R2].Right);
-	if (((T1[R1].Left != Null) && (T2[R2].Left != Null)) &&
+	else if (((T1[R1].Left != Null) && (T2[R2].Left != Null)) &&
 		((T1[T1[R1].Left].Element) == (T2[T2[R2].Left].Element)))
 		return (Isomorphic(T1, T2, T1[R1].Left, T2[R2].Left) && Isomorphic(T1, T2, T1[R1].Right, T2[R2].Right));
-	else
+	else if ((T1[T1[R1].Left].Element == T2[T2[R2].Right].Element) && (T1[T1[R1].Right].Element == T2[T2[R2].Left].Element))
 		return ((Isomorphic(T1, T2, T1[R1].Left, T2[R2].Right)) && (Isomorphic(T1, T2, T1[R1].Right, T2[R2].Left)));
+	else
+		return 0;
 }
 
 int bst_isomophic_demo()
