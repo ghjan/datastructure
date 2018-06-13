@@ -6,9 +6,9 @@ Tree BuildTree(struct TreeNode T[], int N)
 {
 	int Root = -1;
 	char cl, cr, a[10], b[10], c[10];
-	int *check = new int[N];
 	if (N)
 	{
+		int *check = new int[N];
 		for (int i = 0; i<N; i++)
 			check[i] = 0;
 		for (int i = 0; i<N; i++)
@@ -44,7 +44,7 @@ Tree BuildTree(struct TreeNode T[], int N)
 	return Root;
 }
 
-int Isomorphic(Tree R1, Tree R2)
+int Isomorphic(TreeNode T1[], TreeNode T2[], Tree R1, Tree R2)
 {
 	if ((R1 == Null) && (R2 == Null))
 		return 1;
@@ -53,24 +53,25 @@ int Isomorphic(Tree R1, Tree R2)
 	if (T1[R1].Element != T2[R2].Element)
 		return 0;
 	if ((T1[R1].Left == Null) && (T2[R2].Left == Null))
-		return Isomorphic(T1[R1].Right, T2[R2].Right);
+		return Isomorphic(T1, T2, T1[R1].Right, T2[R2].Right);
 	if (((T1[R1].Left != Null) && (T2[R2].Left != Null)) &&
 		((T1[T1[R1].Left].Element) == (T2[T2[R2].Left].Element)))
-		return (Isomorphic(T1[R1].Left, T2[R2].Left) && Isomorphic(T1[R1].Right, T2[R2].Right));
+		return (Isomorphic(T1, T2, T1[R1].Left, T2[R2].Left) && Isomorphic(T1, T2, T1[R1].Right, T2[R2].Right));
 	else
-		return ((Isomorphic(T1[R1].Left, T2[R2].Right)) && (Isomorphic(T1[R1].Right, T2[R2].Left)));
+		return ((Isomorphic(T1, T2, T1[R1].Left, T2[R2].Right)) && (Isomorphic(T1, T2, T1[R1].Right, T2[R2].Left)));
 }
 
 int bst_isomophic_demo()
 {
 	int n, m;
+	TreeNode T1[MaxTree], T2[MaxTree];
 	Tree R1, R2;
 	while (scanf("%d", &n) != EOF)
 	{
 		R1 = BuildTree(T1, n);
 		scanf("%d", &m);
 		R2 = BuildTree(T2, m);
-		if (Isomorphic(R1, R2))
+		if (Isomorphic(T1, T2, R1, R2))
 			printf("Yes\n");
 		else
 			printf("No\n");
