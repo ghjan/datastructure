@@ -48,3 +48,4 @@ void destroy_bstree(BSTree tree);
 // ´òÓ¡¶ş²æÊ÷
 void print_bstree(BSTree tree, Type key, int direction);
 
+int height(BSTree tree);

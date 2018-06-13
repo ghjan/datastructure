@@ -51,10 +51,14 @@ void bstree_demo()
 	postorder_bstree(root);
 	printf("\n");
 
+	printf("== 树的详细高度:%d \n", height(root));
 	printf("== 最小值: %d\n", bstree_minimum(root)->key);
 	printf("== 最大值: %d\n", bstree_maximum(root)->key);
 	printf("== 树的详细信息: \n");
 	print_bstree(root, root->key, 0);
+	
+	printf("\n== 层级遍历: ");
+	levelorder_bstree(root);
 
 	printf("\n== 删除节点: %d", arr[3]);
 	root = delete_bstree(root, arr[3]);
