@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
     <ClInclude Include="bstree.h" />
+    <ClInclude Include="bst_tg.h" />
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
     <ClInclude Include="DynamicStack1.0.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="binary_search.cpp" />
     <ClCompile Include="bstree.cpp" />
     <ClCompile Include="bstree_test.cpp" />
+    <ClCompile Include="bst_tg.cpp" />
     <ClCompile Include="count_tick.cpp" />
     <ClCompile Include="list_1_2.cpp" />
     <ClCompile Include="list_2.cpp" />
