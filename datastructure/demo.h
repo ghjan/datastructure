@@ -16,3 +16,4 @@ int queue_bstree_demo(void);
 int bst_isomophic_demo();
 int BinarySearchTree_demo();
 
+int avl_demo();

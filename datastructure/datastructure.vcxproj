@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="avl.h" />
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="binary_search.h" />
     <ClInclude Include="bstree.h" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
     <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="binary_search.cpp" />
     <ClCompile Include="bstree.cpp" />
