@@ -2,6 +2,7 @@
 
 typedef int Type;
 
+//二叉查找树 binary search tree
 typedef struct BSTreeNode {
 	Type   key;                    // 关键字(键值)
 	struct BSTreeNode *left;    // 左孩子

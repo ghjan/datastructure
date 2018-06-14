@@ -1,5 +1,5 @@
 /**
-* C 语言: 二叉查找树
+* C 语言: 二叉查找树 binary search tree
 *
 * @author skywang
 * @date 2013/11/07
