@@ -13,4 +13,4 @@ int polymath_demo();
 int BinarySearch_demo();
 void bstree_demo();
 int queue_bstree_demo(void);
-int isomorphic_demo();
+int bst_isomophic_demo();

@@ -63,7 +63,7 @@
     <ClInclude Include="queue_bstree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="bst_tg.h">
+    <ClInclude Include="bst_isomophic.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,8 +131,8 @@
     <ClCompile Include="queue_bstree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="bst_tg.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="bst_isomophic.cpp">
+=      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
