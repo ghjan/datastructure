@@ -370,6 +370,7 @@ int height(BSTree tree)
 	int hl, hr, maxH;
 	if (tree != NULL)
 	{
+		//利用了后序遍历
 		hl = height(tree->left);	//左子树高度
 		hr = height(tree->right);	//右子树高度
 		maxH = (hl > hr) ? hl : hr;
