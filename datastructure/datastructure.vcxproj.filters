@@ -1,138 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
+    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="binary_search.cpp" />
+    <ClCompile Include="bstree.cpp" />
+    <ClCompile Include="bstree_test.cpp" />
+    <ClCompile Include="bst_isomophic.cpp" />
+    <ClCompile Include="count_tick.cpp" />
+    <ClCompile Include="list_1_2.cpp" />
+    <ClCompile Include="list_2.cpp" />
+    <ClCompile Include="polymath.cpp" />
+    <ClCompile Include="primefactor.cpp" />
+    <ClCompile Include="queue_bstree.cpp" />
+    <ClCompile Include="queue_link.cpp" />
+    <ClCompile Include="queue_sequence.cpp" />
+    <ClCompile Include="sort.cpp" />
+    <ClCompile Include="stack_array.cpp" />
+    <ClCompile Include="stack_chain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="maxsubseqsum.cpp" />
+    <ClCompile Include="printN.cpp" />
+    <ClCompile Include="list_1.cpp" />
+    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="BinarySearchTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ch1.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ch2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SequenceStack1.0.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="DynamicStack1.0.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="primefactor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="queue_link.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="queue_sequence.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="polymath.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="binary_search.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bstree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="demo.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="queue_bstree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="bst_isomophic.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="maxsubseqsum.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="printN.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="count_tick.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\datastructure\datastructure\main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="list_1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="list_2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="utils.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="list_1_2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stack_array.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="stack_chain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="primefactor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="queue_link.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="queue_sequence.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="polymath.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="sort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="binary_search.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="bstree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="bstree_test.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="queue_bstree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="bst_isomophic.cpp">
-=      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="binary_search.h" />
+    <ClInclude Include="bstree.h" />
+    <ClInclude Include="bst_isomophic.h" />
+    <ClInclude Include="ch2.h" />
+    <ClInclude Include="demo.h" />
+    <ClInclude Include="DynamicStack1.0.h" />
+    <ClInclude Include="polymath.h" />
+    <ClInclude Include="primefactor.h" />
+    <ClInclude Include="queue_bstree.h" />
+    <ClInclude Include="queue_link.h" />
+    <ClInclude Include="queue_sequence.h" />
+    <ClInclude Include="SequenceStack1.0.h" />
+    <ClInclude Include="sort.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ch1.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="BinarySearchTree.h" />
   </ItemGroup>
 </Project>
