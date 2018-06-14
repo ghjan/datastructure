@@ -25,6 +25,7 @@
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="avl.cpp" />
+    <ClCompile Include="bst_eq.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -46,5 +47,6 @@
     <ClInclude Include="utils.h" />
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="avl.h" />
+    <ClInclude Include="bst_eq.h" />
   </ItemGroup>
 </Project>
