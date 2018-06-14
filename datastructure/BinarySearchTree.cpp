@@ -7,9 +7,9 @@ BinarySearchTree *find(myType element, BinarySearchTree *T)
 {
 	if (T == NULL)
 		return NULL;
-	if (element < T->element)   //如果小于根节点值则去左孩子查找
+	if (strcmp(element, T->element) < 0)   //如果小于根节点值则去左孩子查找
 		return find(element, T->lchild);
-	else if (element > T->element)//如果大于根节点值则去左孩子查找
+	else if (strcmp(element, T->element) > 0)//如果大于根节点值则去左孩子查找
 		return find(element, T->rchild);
 	else
 		return T;
@@ -19,9 +19,9 @@ BinarySearchTree *find(myType element, BinarySearchTree *T)
 BinarySearchTree *iter_find(myType element, BinarySearchTree *T)
 {
 	while (T) {
-		if (element < T->element)   //如果小于根节点值则去左孩子查找
+		if (strcmp(element, T->element) < 0)   //如果小于根节点值则去左孩子查找
 			T = T->lchild;
-		else if (element > T->element)//如果大于根节点值则去左孩子查找
+		else if (strcmp(element, T->element) > 0)//如果大于根节点值则去左孩子查找
 			T = T->rchild;
 		else
 			return T;
@@ -76,16 +76,16 @@ BinarySearchTree *remove(myType element, BinarySearchTree *T)
 	if (T == NULL) {
 		printf("NOT FOUNT\n");
 	}
-	else if (element < T->element) {
+	else if (strcmp(element, T->element) < 0) {
 		T->lchild = remove(element, T->lchild);
 	}
-	else if (element > T->element) {
+	else if (strcmp(element, T->element) > 0) {
 		T->rchild = remove(element, T->rchild);
 		//找到该元素，开始删除
 	}
 	else if (T->lchild && T->rchild) {
 		//有两个子树的情况
-		tmpNode = findMin(T->rchild);
+		tmpNode = findMin(T->rchild);//右子树的最小值
 		T->element = tmpNode->element;
 		T->rchild = remove(T->element, T->rchild);
 	}
@@ -105,21 +105,21 @@ BinarySearchTree *remove(myType element, BinarySearchTree *T)
 
 //中序遍历二叉查找树  
 //打印的应该是一个递增的序列  
-void MiddleOrder(BinarySearchTree *T) {
+void middleOrder(BinarySearchTree *T) {
 	if (T == NULL) {
 		return;
 	}
 	else {
 
-		MiddleOrder(T->lchild);
+		middleOrder(T->lchild);
 		printf("%s ", T->element);
-		MiddleOrder(T->rchild);
+		middleOrder(T->rchild);
 	}
 }
 
 //先序遍历二叉查找树  
 //因为先序遍历+中序遍历 可以唯一确定一棵树，等下可以验证树是否正确  
-void PreOrder(BinarySearchTree *T) {
+void preOrder(BinarySearchTree *T) {
 
 	if (T == NULL) {
 		return;
@@ -127,11 +127,21 @@ void PreOrder(BinarySearchTree *T) {
 	else {
 
 		printf("%s ", T->element);
-		PreOrder(T->lchild);
-		PreOrder(T->rchild);
+		preOrder(T->lchild);
+		preOrder(T->rchild);
 	}
 }
 
+void examine(BinarySearchTree *root) {
+	printf("中序遍历二叉查找树,打印的应该是一个递增的序列\n");
+	middleOrder(root);
+	printf("\n 先序遍历\n");
+	preOrder(root);
+	printf("\n");
+	printf("findMax:%s\n", findMax(root)->element);
+	printf("findMin:%s\n", findMin(root)->element);
+
+}
 int BinarySearchTree_demo()
 {
 	const char   *month[] = { "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec" };
@@ -144,14 +154,14 @@ int BinarySearchTree_demo()
 			insert(month[i], tree);
 		}
 	}
+	examine(root);
 
-	printf("中序遍历二叉查找树,打印的应该是一个递增的序列\n");
-	MiddleOrder(root);
-	printf("\n 先序遍历\n");
-	PreOrder(root);
-	printf("\n");
-	printf("findMax:%s\n", findMax(root)->element);
-	printf("findMin:%s\n", findMin(root)->element);
+	remove(month[2],root);
+	examine(root);
+	remove(month[3], root);
+	examine(root);
+	remove(month[8], root);
+	examine(root);
 
 	return 0;
 }

@@ -26,3 +26,10 @@ BinarySearchTree *insert(myType data, BinarySearchTree *T);
 //删除(递归)
 BinarySearchTree *remove(myType data, BinarySearchTree *T);
 
+//中序遍历二叉查找树  
+//打印的应该是一个递增的序列  
+void middleOrder(BinarySearchTree *T);
+
+//先序遍历二叉查找树  
+//因为先序遍历+中序遍历 可以唯一确定一棵树，等下可以验证树是否正确  
+void preOrder(BinarySearchTree *T);
