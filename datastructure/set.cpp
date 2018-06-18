@@ -24,3 +24,34 @@ void Union(SetType S[], ElementType X1, ElementType X2)
 	if( Root1 != Root2 )
 		S[Root2].Parent = Root1;
 }
+
+void PrintSet(SetType S[],int n)
+{
+	printf("-----------\n");
+	for (int i = 0; i < n; i++) {
+		printf("%d %d\n", S[i].Data, S[i].Parent);
+	}
+}
+void set_demo()
+{
+	int n;
+	int x, p;
+	scanf("%d", &n);
+	SetType *set1 = (SetType *)malloc(n*sizeof(SetType));
+	for (int i = 0; i<n; i++) { /* */
+		scanf("%d %d", &x, &p);
+		set1[i].Data = x;
+		set1[i].Parent = p;
+	}
+
+	PrintSet(set1, n);
+
+	int pos1 = Find(set1, 8);
+	printf("find root for 8 at %d\n", pos1);
+
+	pos1 = Find(set1, 7);
+	printf("find root for 7 at %d\n", pos1);
+
+	Union(set1, 8, 7);
+	PrintSet(set1, n);
+}

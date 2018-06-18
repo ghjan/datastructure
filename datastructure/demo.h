@@ -22,3 +22,4 @@ int heap_demo();
 void buildHeapTest();
 int huffman_demo();
 int heap_path_demo();
+void set_demo();
