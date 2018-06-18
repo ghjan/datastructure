@@ -4,7 +4,7 @@
 #define ElementType char  
 #define Tree int  
 #define Null -1  
-typedef struct TreeNode
+struct TreeNode
 {
 	ElementType Element;
 

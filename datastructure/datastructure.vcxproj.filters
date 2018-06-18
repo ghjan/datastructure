@@ -26,6 +26,12 @@
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="bst_eq.cpp" />
+    <ClCompile Include="heap.cpp" />
+    <ClCompile Include="maxheap.cpp" />
+    <ClCompile Include="minheap.cpp" />
+    <ClCompile Include="huffman.cpp" />
+    <ClCompile Include="set.cpp" />
+    <ClCompile Include="heap_path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -48,5 +54,11 @@
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="avl.h" />
     <ClInclude Include="bst_eq.h" />
+    <ClInclude Include="heap.h" />
+    <ClInclude Include="maxheap.h" />
+    <ClInclude Include="minheap.h" />
+    <ClInclude Include="huffman.h" />
+    <ClInclude Include="set.h" />
+    <ClInclude Include="heap_path.h" />
   </ItemGroup>
 </Project>
