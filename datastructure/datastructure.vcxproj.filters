@@ -32,6 +32,7 @@
     <ClCompile Include="huffman.cpp" />
     <ClCompile Include="set.cpp" />
     <ClCompile Include="heap_path.cpp" />
+    <ClCompile Include="simpleset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -60,5 +61,6 @@
     <ClInclude Include="huffman.h" />
     <ClInclude Include="set.h" />
     <ClInclude Include="heap_path.h" />
+    <ClInclude Include="simpleset.h" />
   </ItemGroup>
 </Project>
