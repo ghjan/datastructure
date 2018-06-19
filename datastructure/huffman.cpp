@@ -76,7 +76,9 @@ ElemType calculateWeightLength(PtrHuffman &ptrTree, int len) {
 * 哈夫曼树编码(叶子节点按中序方式依次打印其编码)
 */
 void HuffmanCoding(PtrHuffman &ptrTree, int len) {
-	//静态局部变量相当于全局变量(只是只有在这个函数中能访问,但是生命周期是和全局变量差不多的)函数退出之后变量还在,而且只在第一次进入的时候做初始化,以后会跳过初始化语句,保留原来的值
+	//静态局部变量相当于全局变量
+	//(只是只有在这个函数中能访问,但是生命周期是和全局变量差不多的)
+	//函数退出之后变量还在,而且只在第一次进入的时候做初始化,以后会跳过初始化语句,保留原来的值
 	static int arr[20];
 	if (ptrTree != NULL) {
 		if (ptrTree->left == NULL && ptrTree->right == NULL) {
