@@ -20,7 +20,7 @@ int avl_demo();
 int bst_eq_demo();
 int heap_demo();
 void buildHeapTest();
-int huffman_demo();
+int hufman_code_demo();
 int heap_path_demo();
 void set_demo();
 int network_connection_demo();

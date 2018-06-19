@@ -1,7 +1,13 @@
 #pragma once
-typedef struct TreeNode *HuffmanTree;
-struct TreeNode {
-	int Weight;
-	HuffmanTree Left, Right;
-};
-MinPriorityQueue BuildMinHeap(MinPriorityQueue H);
+/** 哈夫曼树编码 **/
+#include<stdio.h>
+#include<stdlib.h> 
+#define LENGTH 6
+
+typedef int ElemType;
+
+typedef struct HuffmanTreeNode {
+	ElemType data;  //哈夫曼树中节点的权值
+	struct HuffmanTreeNode* left;
+	struct HuffmanTreeNode* right;
+}HuffmanTreeNode, *PtrHuffman;
