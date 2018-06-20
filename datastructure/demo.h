@@ -24,3 +24,4 @@ int hufman_code_demo();
 int heap_path_demo();
 void set_demo();
 int network_connection_demo();
+int graph_matrix_demo();

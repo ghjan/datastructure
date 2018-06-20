@@ -156,6 +156,7 @@
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
     <ClInclude Include="DynamicStack1.0.h" />
+    <ClInclude Include="graph_table.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="heap_path.h" />
     <ClInclude Include="huffman.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="queue_bstree.h" />
     <ClInclude Include="queue_link.h" />
     <ClInclude Include="queue_sequence.h" />
+    <ClInclude Include="graph_matrix.h" />
     <ClInclude Include="SequenceStack1.0.h" />
     <ClInclude Include="set.h" />
     <ClInclude Include="simpleset.h" />
@@ -186,7 +188,7 @@
     <ClCompile Include="bst_eq.cpp" />
     <ClCompile Include="bst_isomophic.cpp" />
     <ClCompile Include="count_tick.cpp" />
-    <ClCompile Include="graph-matrix.cpp" />
+    <ClCompile Include="graph_matrix.cpp" />
     <ClCompile Include="graph_table.cpp" />
     <ClCompile Include="heap.cpp" />
     <ClCompile Include="heap_path.cpp" />

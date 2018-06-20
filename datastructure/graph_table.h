@@ -1,42 +1,34 @@
 #pragma once
+#pragma warning(disable:4996)
 
-/* 图的邻接表表示法 */
+#define MAX_VALUE 10  
 
-#define MaxVertexNum 100    /* 最大顶点数设为100 */
-typedef int Vertex;         /* 用顶点下标表示顶点,为整型 */
-typedef int WeightType;        /* 边的权值设为整型 */
-typedef char DataType;        /* 顶点存储的数据类型设为字符型 */
+typedef struct EdgeNode {//边顶点  
+	int index;//该顶点下标  
+	struct EdgeNode *next;//存储下一个边顶点  
+}EdgeNode;
+typedef struct HeadNode {//表顶点  
+	char data;
+	EdgeNode *edgeNode;
+}HeadNode, AdjacencyList[MAX_VALUE];
 
-							  /* 边的定义 */
-typedef struct ENode *PtrToENode;
-struct ENode {
-	Vertex V1, V2;      /* 有向边<V1, V2> */
-	WeightType Weight;  /* 权重 */
-};
-typedef PtrToENode Edge;
+typedef struct Graph {//图  
+	AdjacencyList list;
+	int vexNum;//当前顶点数  
+	int edgeNum;//当前边数  
+}Graph;
 
-/* 邻接点的定义 */
-typedef struct AdjVNode *PtrToAdjVNode;
-struct AdjVNode {
-	Vertex AdjV;        /* 邻接点下标 */
-	WeightType Weight;  /* 边权重 */
-	PtrToAdjVNode Next;    /* 指向下一个邻接点的指针 */
-};
+//找到该元素所在的下标  
+int locate(Graph *graph, char ch);
+//输出矩阵
+void outputGraph(Graph *graph);
 
-/* 顶点表头结点的定义 */
-typedef struct Vnode {
-	PtrToAdjVNode FirstEdge;/* 边表头指针 */
-	DataType Data;            /* 存顶点的数据 */
-							  /* 注意：很多情况下，顶点无数据，此时Data可以不用出现 */
-} AdjList[MaxVertexNum];    /* AdjList是邻接表类型 */
+//广度优先搜索 
+void BFSGraph(Graph *graph);
 
-							/* 图结点的定义 */
-typedef struct GNode *PtrToGNode;
-struct GNode {
-	int Nv;     /* 顶点数 */
-	int Ne;     /* 边数   */
-	AdjList G;  /* 邻接表 */
-};
-typedef PtrToGNode LGraph; /* 以邻接表方式存储的图类型 */
+//深度搜索  
+void DFS(Graph *graph, int index, int *visited);
+//深度优先搜索  
+void DFSGraph(Graph *graph);
 
-int *Visited = new int[MaxVertexNum];
+void work(char ch);

@@ -1,90 +1,160 @@
 #include "stdafx.h"
-#include <stdio.h>  
-#include <stdlib.h>  
+#include"stdlib.h"
+
 #include "graph_table.h"
 
-LGraph CreateGraph(int VertexNum)
-{ /* 初始化一个有VertexNum个顶点但没有边的图 */
-	Vertex V;
-	LGraph Graph;
-
-	Graph = (LGraph)malloc(sizeof(struct GNode)); /* 建立图 */
-	Graph->Nv = VertexNum;
-	Graph->Ne = 0;
-	/* 初始化邻接表头指针 */
-	/* 注意：这里默认顶点编号从0开始，到(Graph->Nv - 1) */
-	for (V = 0; V<Graph->Nv; V++)
-		Graph->G[V].FirstEdge = NULL;
-
-	return Graph;
+//找到该元素所在的下标  
+int locate(Graph *graph, char ch) {
+	int i;
+	for (i = 0; i < graph->vexNum; i++) {
+		if (graph->list[i].data == ch)
+			return i;
+	}
+	return -1;
 }
 
-void InsertEdge(LGraph Graph, Edge E)
-{
-	PtrToAdjVNode NewNode;
 
-	/* 插入边 <V1, V2> */
-	/* 为V2建立新的邻接点 */
-	NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));
-	NewNode->AdjV = E->V2;
-	NewNode->Weight = E->Weight;
-	/* 将V2插入V1的表头 */
-	NewNode->Next = Graph->G[E->V1].FirstEdge;
-	Graph->G[E->V1].FirstEdge = NewNode;
+//构造邻接表图  
+Graph *createGraph() {
+	Graph *graph;
+	char ch;
+	graph = (Graph*)malloc(sizeof(Graph));
+	graph->edgeNum = 0;
+	graph->vexNum = 0;
+	printf("输入顶点回车退出输入\n");
 
-	/* 若是无向图，还要插入边 <V2, V1> */
-	/* 为V1建立新的邻接点 */
-	NewNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));
-	NewNode->AdjV = E->V1;
-	NewNode->Weight = E->Weight;
-	/* 将V1插入V2的表头 */
-	NewNode->Next = Graph->G[E->V2].FirstEdge;
-	Graph->G[E->V2].FirstEdge = NewNode;
-}
-
-LGraph BuildGraph()
-{
-	LGraph Graph;
-	Edge E;
-	Vertex V;
-	int Nv, i;
-
-	scanf("%d", &Nv);   /* 读入顶点个数 */
-	Graph = CreateGraph(Nv); /* 初始化有Nv个顶点但没有边的图 */
-
-	scanf("%d", &(Graph->Ne));   /* 读入边数 */
-	if (Graph->Ne != 0) { /* 如果有边 */
-		E = (Edge)malloc(sizeof(struct ENode)); /* 建立边结点 */
-												/* 读入边，格式为"起点 终点 权重"，插入邻接矩阵 */
-		for (i = 0; i<Graph->Ne; i++) {
-			scanf("%d %d %d", &E->V1, &E->V2, &E->Weight);
-			/* 注意：如果权重不是整型，Weight的读入格式要改 */
-			InsertEdge(Graph, E);
-		}
+	while ((ch = getchar()) != '\n') {
+		//构造顶点表  
+		graph->list[graph->vexNum].data = ch;
+		graph->list[graph->vexNum].edgeNode = NULL;
+		graph->vexNum++;
+		printf("输入顶点回车退出输入\n");
+		fflush(stdin);
 	}
 
-	/* 如果顶点有数据的话，读入数据 */
-	for (V = 0; V<Graph->Nv; V++)
-		scanf(" %c", &(Graph->G[V].Data));
+	int i;
+	printf("当前输入的顶点数如下:\n");
+	for (i = 0; i < graph->vexNum; i++) {
+		printf("%c  ", graph->list[i].data);
+	}
 
-	return Graph;
+	//构造边  
+	printf("输入边数\n");
+	scanf("%d", &graph->edgeNum);
+	EdgeNode *node;
+	for (i = 0; i < graph->edgeNum; i++) {
+		printf("输入两个要连接的顶点的值\n");
+		fflush(stdin);
+		char valueA, valueB;
+		scanf("%c %c", &valueA, &valueB);
+		int indexA = locate(graph, valueA);
+		int indexB = locate(graph, valueB);
+
+		//始终在头节点后插入新元素  
+		node = (EdgeNode*)malloc(sizeof(EdgeNode));
+		node->index = indexA;
+		node->next = graph->list[indexB].edgeNode;
+		graph->list[indexB].edgeNode = node;
+
+		//因为无向图 所以另外一个表顶点也要插入这条路径的边顶点  
+		node = (EdgeNode*)malloc(sizeof(EdgeNode));
+		node->index = indexB;
+		node->next = graph->list[indexA].edgeNode;
+		graph->list[indexA].edgeNode = node;
+
+	}
+	return graph;
+}
+//输出矩阵  
+void outputGraph(Graph *graph) {
+	//依次输入每个表顶点的链表  
+	int i;
+	EdgeNode *temp;
+	for (i = 0; i < graph->vexNum; i++) {
+		printf("第%d个表顶点:", i);
+		printf("%c  ", graph->list[i].data);//表头顶点的值  
+		temp = graph->list[i].edgeNode;
+		while (temp) {
+			//对该链表进行遍历  
+			printf("%c  ", graph->list[temp->index]);
+			temp = temp->next;
+		}
+		printf("\n");
+	}
+}
+//广度优先搜索  
+void BFSGraph(Graph *graph) {
+	int i;
+	int *visited = new int[graph->vexNum];
+
+	//对访问标志数组的初始化  
+	for (i = 0; i < graph->vexNum; i++) {
+		visited[i] = 0;
+	}
+
+	EdgeNode *temp;
+	for (i = 0; i < graph->vexNum; i++) {
+		if (visited[i] == 0) {
+			work(graph->list[i].data);//访问表头节点  
+			visited[i] = 1;//设置访问标签  
+		}
+		//对该链表进行遍历访问  
+		temp = graph->list[i].edgeNode;
+		while (temp) {
+			if (visited[temp->index] == 0) {//如果该顶点未访问过  
+				work(graph->list[temp->index].data);
+				visited[temp->index] = 1;//设置访问标签  
+			}
+			temp = temp->next;
+		}
+	}
 }
 
-/* 邻接表存储的图 - DFS */
-void Visit(Vertex V)
+//深度优先搜索  
+void DFSGraph(Graph *graph) {
+	int i;
+	int *visited = new int[graph->vexNum];
+	for (i = 0; i < graph->vexNum; i++) {
+		visited[i] = 0;
+	}
+	for (i = 0; i < graph->vexNum; i++) {
+		if (visited[i] == 0) {
+			work(graph->list[i].data);//访问表头节点  
+			visited[i] = 1;//设置访问标签  
+		}
+
+
+		int index = graph->list[i].edgeNode->index;
+		DFS(graph, index, visited);
+	}
+}
+//深度搜索  
+void DFS(Graph *graph, int index, int *visited) {
+	EdgeNode *temp;
+	if (visited[index] == 0) {
+		work(graph->list[index].data);//访问表头节点  
+		visited[index] = 1;//设置访问标签  
+	}
+	temp = graph->list[index].edgeNode;
+	while (temp) {
+		if (visited[temp->index] == 0) {//如果该节点之前未访问过  
+			DFS(graph, temp->index, visited);//深入下一层  
+		}
+		temp = temp->next;
+	}
+}
+//图元素操作函数  
+void work(char ch) {
+	printf("%c  ", ch);
+}
+
+int graph_table_demo()
 {
-	printf("正在访问顶点%d\n", V);
-}
-
-/* Visited[]为全局变量，已经初始化为false */
-void DFS(LGraph Graph, Vertex V, void(*Visit)(Vertex))
-{   /* 以V为出发点对邻接表存储的图Graph进行DFS搜索 */
-	PtrToAdjVNode W;
-
-	Visit(V); /* 访问第V个顶点 */
-	Visited[V] = true; /* 标记V已访问 */
-
-	for (W = Graph->G[V].FirstEdge; W; W = W->Next) /* 对V的每个邻接点W->AdjV */
-		if (!Visited[W->AdjV])    /* 若W->AdjV未被访问 */
-			DFS(Graph, W->AdjV, Visit);    /* 则递归访问之 */
+	Graph * p = createGraph();
+	outputGraph(p);
+	printf("广度优先搜索遍历输出:\n");
+	BFSGraph(p);
+	printf("\n深度优先搜索遍历输出:\n");
+	DFSGraph(p);
+	return 0;
 }
