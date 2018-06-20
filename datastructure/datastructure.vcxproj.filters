@@ -33,6 +33,8 @@
     <ClCompile Include="set.cpp" />
     <ClCompile Include="heap_path.cpp" />
     <ClCompile Include="simpleset.cpp" />
+    <ClCompile Include="graph-matrix.cpp" />
+    <ClCompile Include="graph_table.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />

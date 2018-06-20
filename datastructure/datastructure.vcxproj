@@ -186,6 +186,8 @@
     <ClCompile Include="bst_eq.cpp" />
     <ClCompile Include="bst_isomophic.cpp" />
     <ClCompile Include="count_tick.cpp" />
+    <ClCompile Include="graph-matrix.cpp" />
+    <ClCompile Include="graph_table.cpp" />
     <ClCompile Include="heap.cpp" />
     <ClCompile Include="heap_path.cpp" />
     <ClCompile Include="huffman.cpp" />
