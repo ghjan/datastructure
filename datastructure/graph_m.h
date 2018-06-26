@@ -15,6 +15,6 @@ typedef int Vertex; //用顶点下标表示顶点，为整型
 typedef struct ENode *PtrToENode; //
 struct ENode {
 	Vertex V1, V2;		//有向边 <V1, V2>
-	WeightType Weigth;	//权重
+	WeightType Weight;	//权重
 };
 typedef PtrToENode Edge;

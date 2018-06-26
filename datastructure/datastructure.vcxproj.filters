@@ -35,6 +35,8 @@
     <ClCompile Include="simpleset.cpp" />
     <ClCompile Include="graph_table.cpp" />
     <ClCompile Include="graph_matrix.cpp" />
+    <ClCompile Include="graph_m.cpp" />
+    <ClCompile Include="graph_lg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -66,5 +68,7 @@
     <ClInclude Include="simpleset.h" />
     <ClInclude Include="graph_matrix.h" />
     <ClInclude Include="graph_table.h" />
+    <ClInclude Include="graph_m.h" />
+    <ClInclude Include="graph_lg.h" />
   </ItemGroup>
 </Project>

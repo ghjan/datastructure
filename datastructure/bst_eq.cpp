@@ -91,8 +91,9 @@ void preOrderTraversal(pTree tree) {
 	}
 }
 
+//返回0表示不同
 int check(pTree tree, elementType element) {
-	if (tree->flag) {
+	if (tree->flag) { //已经是不同了，继续下去是为了输入完完整的树
 		if (element<tree->element) {
 			check(tree->left, element);
 		}
@@ -114,9 +115,9 @@ int check(pTree tree, elementType element) {
 	}
 }
 
-
+//返回1表示相同
 int judge(pTree tree, int N) {
-	int elemen, i, flag = 0;
+	int elemen, i, flag = 0; //flag为1表示发现了不同
 	scanf("%d", &elemen);
 	if (elemen != tree->element) {
 		flag = 1;
@@ -126,7 +127,8 @@ int judge(pTree tree, int N) {
 	}
 	for (i = 1; i<N; i++) {
 		scanf("%d", &elemen);
-		/*当已经判断出该二叉搜索树和源二叉搜索树不一致时，需要继续把数据读完，不然未读完的数据就会变成下一个树的元素*/
+		/*当已经判断出该二叉搜索树和源二叉搜索树不一致时，
+		需要继续把数据读完，不然未读完的数据就会变成下一个树的元素*/
 		if ((!flag) && (!check(tree, elemen))) {
 			flag = 1;
 		}
@@ -134,7 +136,7 @@ int judge(pTree tree, int N) {
 	if (flag) {
 		return 0;
 	}
-	else {
+	else { //相同
 		return 1;
 	}
 
@@ -178,7 +180,7 @@ int bst_eq_demo() {
 			}
 			resetTree(tree);
 		}
-		/*释放已经判断过得二叉搜索树*/
+		/*释放已经判断过的二叉搜索树*/
 		freeTree(tree);
 		scanf("%d", &N);
 	}

@@ -156,6 +156,8 @@
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
     <ClInclude Include="DynamicStack1.0.h" />
+    <ClInclude Include="graph_lg.h" />
+    <ClInclude Include="graph_m.h" />
     <ClInclude Include="graph_table.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="heap_path.h" />
@@ -188,6 +190,8 @@
     <ClCompile Include="bst_eq.cpp" />
     <ClCompile Include="bst_isomophic.cpp" />
     <ClCompile Include="count_tick.cpp" />
+    <ClCompile Include="graph_lg.cpp" />
+    <ClCompile Include="graph_m.cpp" />
     <ClCompile Include="graph_matrix.cpp" />
     <ClCompile Include="graph_table.cpp" />
     <ClCompile Include="heap.cpp" />

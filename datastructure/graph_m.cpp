@@ -25,10 +25,10 @@ MGraph CreateGraph(int VertexNum)
 void InsertEdge(MGraph Graph, Edge E)
 {
 	//插入边 <V1, V2>
-	Graph->G[E->V1][E->V2] = E->Weigth;
+	Graph->G[E->V1][E->V2] = E->Weight;
 
 	//若是无向图,还要插入边 <V2, V1>
-	Graph->G[E->V2][E->V1] = E->Weigth;
+	Graph->G[E->V2][E->V1] = E->Weight;
 
 }
 
@@ -57,7 +57,7 @@ MGraph BuildGraph()
 		printf("输入每个边的数据:\n");
 		for (int i = 0; i < Graph->Ne; i++)
 		{
-			scanf("%d %d %d", &E->V1, &E->V2, &E->Weigth); //输入每个边的数据
+			scanf("%d %d %d", &E->V1, &E->V2, &E->Weight); //输入每个边的数据
 			InsertEdge(Graph, E);
 		}
 	}
