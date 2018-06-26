@@ -2,15 +2,15 @@
 #pragma warning(disable:4996)
 #define MaxTree 10  
 #define ElementType char  
-#define Tree int  
+#define Position int   //保存一个数组位置index 从0开始
 #define Null -1  
 struct TreeNode
 {
 	ElementType Element;
 
-	Tree Left;
-	Tree Right;
+	Position Left;
+	Position Right;
 };
 
-Tree BuildTree(struct TreeNode T[], int N);
-int Isomorphic(TreeNode T1, TreeNode T2, Tree R1, Tree R2);
+Position BuildTree(struct TreeNode T[], int N);
+int Isomorphic(TreeNode T1[], TreeNode T2[], Position R1, Position R2);
