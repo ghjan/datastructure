@@ -25,3 +25,5 @@ int heap_path_demo();
 void set_demo();
 int network_connection_demo();
 int graph_matrix_demo();
+void tree_tranverse_again_demo();
+void tree_tranverse_again_demo1();

@@ -19,7 +19,6 @@ int MaxSubsequenceSum1(int A[], int NN)
 	return MaxSum;
 }
 
-
 int MaxSubsequenceSum2(int A[], int NN)
 {
 	int ThisSum, MaxSum = 0;

@@ -35,6 +35,9 @@
     <ClCompile Include="simpleset.cpp" />
     <ClCompile Include="graph_table.cpp" />
     <ClCompile Include="graph_matrix.cpp" />
+    <ClCompile Include="graph_lg.cpp" />
+    <ClCompile Include="graph_m.cpp" />
+    <ClCompile Include="tree_tranverse_again.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -42,7 +45,6 @@
     <ClInclude Include="bst_isomophic.h" />
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
-    <ClInclude Include="DynamicStack1.0.h" />
     <ClInclude Include="polymath.h" />
     <ClInclude Include="primefactor.h" />
     <ClInclude Include="queue_bstree.h" />
@@ -66,5 +68,11 @@
     <ClInclude Include="simpleset.h" />
     <ClInclude Include="graph_matrix.h" />
     <ClInclude Include="graph_table.h" />
+    <ClInclude Include="graph_lg.h" />
+    <ClInclude Include="graph_m.h" />
+    <ClInclude Include="stack_chain.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="tree_tranverse_again.txt" />
   </ItemGroup>
 </Project>

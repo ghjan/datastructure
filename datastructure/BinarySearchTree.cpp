@@ -103,9 +103,22 @@ BinarySearchTree *remove(myType element, BinarySearchTree *T)
 }
 //以上代码在删除有两个子树的情况效率不高，因为查找和删除右子树中最小的节点遍历了两趟。
 
-//中序遍历二叉查找树  
+//中序遍历二叉查找树  （递归版本）
 //打印的应该是一个递增的序列  
 void middleOrder(BinarySearchTree *T) {
+	if (T == NULL) {
+		return;
+	}
+	else {
+
+		middleOrder(T->lchild);
+		printf("%s ", T->element);
+		middleOrder(T->rchild);
+	}
+}
+
+//中序遍历二叉查找树（非递归版本）
+void iter_middleOrder(BinarySearchTree *T) {
 	if (T == NULL) {
 		return;
 	}
@@ -132,6 +145,7 @@ void preOrder(BinarySearchTree *T) {
 	}
 }
 
+//中序遍历和先序遍历 唯一确定一棵树
 void examine(BinarySearchTree *root) {
 	printf("中序遍历二叉查找树,打印的应该是一个递增的序列\n");
 	middleOrder(root);

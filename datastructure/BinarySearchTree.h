@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable:4996)
 typedef const char * myType;
 
 typedef struct treeNode
@@ -33,3 +34,6 @@ void middleOrder(BinarySearchTree *T);
 //先序遍历二叉查找树  
 //因为先序遍历+中序遍历 可以唯一确定一棵树，等下可以验证树是否正确  
 void preOrder(BinarySearchTree *T);
+
+//中序遍历和先序遍历 唯一确定一棵树
+void examine(BinarySearchTree *root);

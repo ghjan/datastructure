@@ -3,7 +3,7 @@
 #include <stdbool.h>  
 #include <stdlib.h>  
 #include <assert.h>
-#include "DynamicStack1.0.h"  
+#include "stack_chain.h"  
 
 int realsize = maxsize_sc;
 
