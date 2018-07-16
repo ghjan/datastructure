@@ -68,18 +68,22 @@ Polynomial ReadPoly()
 {
 	Polynomial p, rear, t;
 	int c, e, N;
+#ifdef  _DEBUG
 	printf("输入多项式项目数\n");
-	scanf_s("%d", &N,5);
+	printf("输入多项式各项：系数 指数\n");
+#endif
+	scanf_s("%d", &N, 5);
 	p = (Polynomial)malloc(sizeof(PolyNode));
 	p->link = NULL;
 	rear = p;
-	printf("输入多项式各项：系数 指数\n");
 	while (N--) {
-		scanf_s("%d %d", &c, &e,10);
+		scanf_s("%d %d", &c, &e, 10);
 		Attach(c, e, &rear);
 	}
 	t = p; p = p->link; free(t);//释放临时头节点
-	printPolynomial(p);
+#ifdef  _DEBUG
+	printPolynomial(p, false);
+#endif
 	return p;
 }
 
@@ -96,7 +100,7 @@ Polynomial PolyMul(Polynomial P1, Polynomial P2)
 		Polynomial polynomial = (Polynomial)malloc(sizeof(PolyNode));
 		Initialize(polynomial);
 		PolyNode *tail = polynomial;
-		
+
 		for (int i = 0; tail1 != NULL; ++i) {
 			PolyNode * node = (PolyNode *)malloc(sizeof(PolyNode));
 			node->coef = tail1->coef*tail2->coef;
@@ -174,7 +178,7 @@ Polynomial clonePolymialOrdered(Polynomial poly)
 	int *exp = new int[length],
 		*coef = new int[length];
 	tail = poly;
-	for(int i=0;i<length && tail;i++) {
+	for (int i = 0; i < length && tail; i++) {
 		exp[i] = tail->expon;
 		coef[i] = tail->coef;
 		tail = tail->link;
@@ -197,21 +201,23 @@ void PolySort(Polynomial poly) {
 	int *exp = new int[length],
 		*coef = new int[length];
 	tail = poly;
-	for (int i = 0; i<length && tail; i++) {
+	for (int i = 0; i < length && tail; i++) {
 		exp[i] = tail->expon;
 		coef[i] = tail->coef;
 		tail = tail->link;
 	}
 
 	sort_ordered(exp, length, new_order);
+	int *coef_o = clone_ordered(coef, length, new_order);
+#ifdef  _DEBUG
 	printf("排序后的exp数组为：\n");
 	print_array(exp, length);
-	int *coef_o = clone_ordered(coef, length, new_order);
 	printf("排序后的coef_o数组为：\n");
 	print_array(coef_o, length);
+#endif
 
 	tail = poly;
-	for (int i = 0; i<length && tail; i++) {
+	for (int i = 0; i < length && tail; i++) {
 		tail->expon = exp[i];
 		tail->coef = coef_o[i];
 		tail = tail->link;
@@ -229,21 +235,26 @@ PolyNode * clonePolyNode(PolyNode source) {
 }
 
 //打印一个项
-void printPolyNode(PolyNode node) {
-	printf("%dx^%d", node.coef, node.expon);
+void printPolyNode(PolyNode node, bool simple) {
+	if (simple) {
+		printf("%d %d ", node.coef, node.expon);
+	}
+	else {
+		printf("%dx^%d", node.coef, node.expon);
+	}
 }
 
 //打印多项式
-void printPolynomial(Polynomial poly) {
+void printPolynomial(Polynomial poly, bool simple) {
 	PolyNode *tail = poly;
 	while (tail != NULL) {
-		printPolyNode(*tail);
+		printPolyNode(*tail, simple);
 		tail = tail->link;
-		if (tail != NULL) {
+		if (tail != NULL && !simple) {
 			printf(" + ");
 		}
 	}
-	puts("\n");
+	printf("\n");
 }
 
 /*
@@ -266,8 +277,9 @@ void subPolynomial(Polynomial listA, Polynomial listB) {
 
 */
 
-int polyadd_demo()
+int polyadd_demo(Polynomial p1, Polynomial p2)
 {
+	/*
 	//系数
 	int coef1[5] = { 2, 3, 5, -3, 9 };
 	//指数
@@ -275,37 +287,61 @@ int polyadd_demo()
 
 	Polynomial p1 = createPolynomial(coef1, exp1, 5);
 	puts("------ p1: ------");
-	printPolynomial(p1);
+	#ifdef  _DEBUG
+	printPolynomial(p1, false);
+	#else
+	printPolynomial(p1, true);
+	#endif
 
 	int coef2[6] = { 5, 4, 5, -6, 1, 5 };
 	int exp2[6] = { 3, 8, 4, 6, 2, 7 };
 
 	Polynomial p2 = createPolynomial(coef2, exp2, 6);
 	puts("------ p2: ------");
-	printPolynomial(p2);
-
+	#ifdef  _DEBUG
+	printPolynomial(p2, false);
+	#else
+	printPolynomial(p2, true);
+	#endif
 	puts("===== (p1+p2) =====");
+	*/
 	//相加
 	Polynomial sum = PolyAdd(p1, p2);
-	printPolynomial(sum);
+#ifdef  _DEBUG
+	printPolynomial(sum, false);
+#else
+	printPolynomial(sum, true);
+#endif
 	return 0;
 }
 
-int polymul_demo()
+int polymul_demo(Polynomial p1, Polynomial p2)
 {
-	Polynomial p1 = ReadPoly();
-	Polynomial p2 = ReadPoly();
-	PolySort(p1);
-	PolySort(p2);
+
 	//相乘
 	Polynomial mul = PolyMul(p1, p2);
-	printPolynomial(mul);
+#ifdef  _DEBUG
+	printPolynomial(mul, false);
+#else
+	printPolynomial(mul, true);
+#endif
 	return 0;
 }
 
 int polymath_demo()
 {
-	polyadd_demo();
-	//polymul_demo();
+	Polynomial p1 = ReadPoly();
+	Polynomial p2 = ReadPoly();
+	PolySort(p1);
+	PolySort(p2);
+#ifdef  _DEBUG
+	printf("--------polymul_demo----");
+#endif
+	polymul_demo(p1, p2);
+
+#ifdef  _DEBUG
+	printf("--------polyadd_demo----");
+#endif
+	polyadd_demo(p1, p2);
 	return 0;
 }

@@ -4,7 +4,7 @@
 void printN1(int );
 void printN2(int );
 
-void polynomial(int count);
+void test_subsequence(int count);
 double count_tick(double pf(int, double[], double), int count);
 int MaxSubsequenceSum1(int A[], int );
 int MaxSubsequenceSum2(int A[], int );

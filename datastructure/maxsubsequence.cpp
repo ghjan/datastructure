@@ -22,7 +22,7 @@ double f2(int n, double a[], double x) {
 	return p;
 }
 
-void polynomial(int count) {
+void test_subsequence(int count) {
 	double duration1 = count_tick(f1, count);
 	printf("duration1 = %6.2e\n", duration1);
 	double duration2 = count_tick(f2, count);
@@ -30,7 +30,7 @@ void polynomial(int count) {
 
 }
 
-void demo_polynomial() {
+void demo_maxsubsequence() {
 	int A[N];
 	for (int i = 0;i < N;i++) {
 		A[i] = rand() % 100;

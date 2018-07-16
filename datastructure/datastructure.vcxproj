@@ -183,7 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
-    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="binary_search.cpp" />
