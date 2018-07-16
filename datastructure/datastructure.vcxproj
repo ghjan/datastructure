@@ -156,6 +156,7 @@
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
     <ClInclude Include="floyd.h" />
+    <ClInclude Include="listmerge.h" />
     <ClInclude Include="shortestpath.h" />
     <ClInclude Include="sixdegree.h" />
     <ClInclude Include="stack_chain.h" />
@@ -184,7 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
-    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
+    <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="binary_search.cpp" />
@@ -194,6 +195,7 @@
     <ClCompile Include="bst_isomophic.cpp" />
     <ClCompile Include="count_tick.cpp" />
     <ClCompile Include="floyd.cpp" />
+    <ClCompile Include="listmerge.cpp" />
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="sixdegree.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />

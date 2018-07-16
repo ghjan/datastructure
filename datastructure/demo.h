@@ -30,3 +30,7 @@ void tree_tranverse_again_demo1();
 int graph_queue_link_demo(void);
 int floyd_demo();
 int sixdegree_demo();
+
+int listmerge_demo();
+void demo_maxsubsequence();
+int gnode_queue_link_demo(void);

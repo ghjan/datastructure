@@ -1,0 +1,57 @@
+﻿  stdafx.cpp
+  main.cpp
+  maxsubsequence.cpp
+  avl.cpp
+  BinarySearchTree.cpp
+  binary_search.cpp
+  bstree.cpp
+  bstree_test.cpp
+  bst_eq.cpp
+  bst_isomophic.cpp
+  count_tick.cpp
+  floyd.cpp
+  listmerge.cpp
+  shortestpath.cpp
+  sixdegree.cpp
+  tree_tranverse_again.cpp
+  graph_lg.cpp
+e:\cworkspace\datastructure\datastructure\graph_lg.cpp(8): warning C4101: “W”: 未引用的局部变量
+  graph_m.cpp
+  graph_matrix.cpp
+e:\cworkspace\datastructure\datastructure\graph_matrix.cpp(151): warning C4101: “j”: 未引用的局部变量
+  graph_table.cpp
+e:\cworkspace\datastructure\datastructure\graph_table.cpp(79): warning C4477: “printf”: 格式字符串“%c”需要类型“int”的参数，但可变参数 1 拥有了类型“HeadNode”
+  heap.cpp
+  正在编译...
+  heap_path.cpp
+  huffman.cpp
+  list_1_2.cpp
+  list_2.cpp
+e:\cworkspace\datastructure\datastructure\list_2.cpp(79): warning C4101: “tmp”: 未引用的局部变量
+  maxheap.cpp
+  minheap.cpp
+  polymath.cpp
+e:\cworkspace\datastructure\datastructure\polymath.cpp(75): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  e:\cworkspace\datastructure\datastructure\polymath.cpp(75): note: 占位符和其参数预计 1 可变参数，但提供的却是 2 参数
+e:\cworkspace\datastructure\datastructure\polymath.cpp(80): warning C4474: scanf_s: 格式字符串中传递的参数太多
+  e:\cworkspace\datastructure\datastructure\polymath.cpp(80): note: 占位符和其参数预计 2 可变参数，但提供的却是 3 参数
+  primefactor.cpp
+  queue_bstree.cpp
+  queue_link.cpp
+  queue_sequence.cpp
+  set.cpp
+  simpleset.cpp
+  sort.cpp
+  stack_array.cpp
+  stack_chain.cpp
+  maxsubseqsum.cpp
+e:\cworkspace\datastructure\datastructure\maxsubseqsum.cpp(25): warning C4101: “k”: 未引用的局部变量
+  printN.cpp
+  list_1.cpp
+  utils.cpp
+e:\cworkspace\datastructure\datastructure\utils.cpp(10): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  正在生成代码
+e:\cworkspace\datastructure\datastructure\utils.cpp(30): warning C4715: “Compare”: 不是所有的控件路径都返回值
+  All 21 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  datastructure.vcxproj -> E:\cworkspace\datastructure\Release\datastructure.exe

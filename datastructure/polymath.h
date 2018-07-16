@@ -22,6 +22,6 @@ Polynomial PolyMul(Polynomial P1, Polynomial P2);
 //从标准输入读入多项式
 Polynomial ReadPoly();
 //打印一个项
-void printPolyNode(PolyNode node);
+void printPolyNode(PolyNode node, bool simple);
 //打印多项式
-void printPolynomial(Polynomial poly);
+void printPolynomial(Polynomial poly, bool simple);

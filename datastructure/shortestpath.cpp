@@ -7,7 +7,8 @@
 using namespace std;
 
 /* 构造一个空队列 */
-bool InitQueue(GraphLinkQueue *Lp)
+
+bool InitQueue(GNodeLinkQueue *Lp)
 {
 	cout << "Init Queue ..." << endl;
 	GraphNodePtr p = (GraphNodePtr)malloc(sizeof(GraphNode));
@@ -16,7 +17,7 @@ bool InitQueue(GraphLinkQueue *Lp)
 	return true;
 }
 /* 销毁队列,包括头节点 */
-bool DestroyQueue(GraphLinkQueue *Lp)
+bool DestroyQueue(GNodeLinkQueue *Lp)
 {
 	cout << "Destroy Queue ..." << endl;
 	while (Lp->front)
@@ -29,7 +30,7 @@ bool DestroyQueue(GraphLinkQueue *Lp)
 	return true;
 }
 /* 清为空队列，保留头节点 */
-bool ClearQueue(GraphLinkQueue *Lp)
+bool ClearQueue(GNodeLinkQueue *Lp)
 {
 	cout << "Clear Queue ..." << endl;
 	GraphNodePtr p = Lp->front->next;
@@ -47,12 +48,12 @@ bool ClearQueue(GraphLinkQueue *Lp)
 	return true;
 }
 
-bool QueueEmpty(GraphLinkQueue LQ)
+bool QueueEmpty(GNodeLinkQueue LQ)
 {
 	return LQ.front == LQ.rear;
 }
 
-int QueueLength(GraphLinkQueue LQ)
+int QueueLength(GNodeLinkQueue LQ)
 {
 	int i = 0;
 	if (LQ.front == NULL)
@@ -67,7 +68,8 @@ int QueueLength(GraphLinkQueue LQ)
 	return i;
 }
 
-bool GetHead(GraphLinkQueue LQ, ElemType *pe)
+
+bool GetHead(GNodeLinkQueue LQ, ElemType *pe)
 {
 	GraphNodePtr p;
 	if (LQ.front == LQ.rear)
@@ -79,7 +81,8 @@ bool GetHead(GraphLinkQueue LQ, ElemType *pe)
 }
 
 /* 插入元素Elem为队列的新的队尾元素 */
-bool EnQueue(GraphLinkQueue *Lp, ElemType Elem)
+
+bool EnQueue(GNodeLinkQueue *Lp, ElemType Elem)
 {
 	cout << "EnQueue Item " << Elem << endl;
 	GraphNodePtr s = (GraphNodePtr)malloc(sizeof(GraphNode));
@@ -91,7 +94,8 @@ bool EnQueue(GraphLinkQueue *Lp, ElemType Elem)
 	return true;
 }
 /*删除队列的队头元素,用*pe返回其值 */
-bool DeQueue(GraphLinkQueue *Lp, ElemType *pe)
+
+bool DeQueue(GNodeLinkQueue *Lp, ElemType *pe)
 {
 	if (Lp->front == Lp->rear)
 		return false;
@@ -106,7 +110,7 @@ bool DeQueue(GraphLinkQueue *Lp, ElemType *pe)
 	return true;
 }
 /* 从队头到队尾依次对队列中每个元素输出 */
-bool QueueTraverse(GraphLinkQueue LQ)
+bool QueueTraverse(GNodeLinkQueue LQ)
 {
 	cout << "Queue Traverse ..." << endl;
 	GraphNodePtr p = LQ.front->next;
@@ -120,9 +124,10 @@ bool QueueTraverse(GraphLinkQueue LQ)
 	return true;
 }
 
-int graph_queue_link_demo(void)
+
+int gnode_queue_link_demo(void)
 {
-	GraphLinkQueue LQ;
+	GNodeLinkQueue LQ;
 	InitQueue(&LQ);
 	for (int i = 0; i < 5; i++)
 		EnQueue(&LQ, i);

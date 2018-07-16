@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
-    <ClCompile Include="..\..\datastructure\datastructure\polynomial.cpp" />
     <ClCompile Include="binary_search.cpp" />
     <ClCompile Include="bstree.cpp" />
     <ClCompile Include="bstree_test.cpp" />
@@ -38,9 +37,11 @@
     <ClCompile Include="graph_lg.cpp" />
     <ClCompile Include="graph_m.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
+    <ClCompile Include="listmerge.cpp" />
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="floyd.cpp" />
     <ClCompile Include="sixdegree.cpp" />
+    <ClCompile Include="maxsubsequence.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -74,6 +75,7 @@
     <ClInclude Include="graph_lg.h" />
     <ClInclude Include="graph_m.h" />
     <ClInclude Include="stack_chain.h" />
+    <ClInclude Include="listmerge.h" />
     <ClInclude Include="shortestpath.h" />
     <ClInclude Include="floyd.h" />
     <ClInclude Include="sixdegree.h" />

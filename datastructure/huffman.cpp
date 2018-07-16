@@ -57,7 +57,7 @@ PtrHuffman createHuffmanTree(ElemType arr[]) {
 /**
 * 计算哈夫曼树带权路径长度WPL
 */
-ElemType calculateWeightLength(PtrHuffman &ptrTree, int len) {
+ElemType calculateweightLength(PtrHuffman &ptrTree, int len) {
 	if (ptrTree == NULL) { //空树返回0
 		return 0;
 	}
@@ -66,7 +66,7 @@ ElemType calculateWeightLength(PtrHuffman &ptrTree, int len) {
 			return ptrTree->data * len;
 		}
 		else {
-			return calculateWeightLength(ptrTree->left, len + 1) + calculateWeightLength(ptrTree->right, len + 1); //向下递归计算
+			return calculateweightLength(ptrTree->left, len + 1) + calculateweightLength(ptrTree->right, len + 1); //向下递归计算
 		}
 	}
 }
@@ -149,6 +149,15 @@ void PreOrderprintHuffmanTreeNode(PtrHuffman &pRoot) {
 	}
 }
 
+int WPL(PtrHuffman T, int Depth)
+{
+	if (!T->left && !T->right)
+		return (Depth*T->data);
+	else /* 否则T一定有2个孩子*/
+		return (WPL(T->left, Depth + 1)
+			+ WPL(T->right, Depth + 1));
+}
+
 
 /**
 * 测试程序入口
@@ -165,7 +174,7 @@ int hufman_code_demo() {
 	PreOrderprintHuffmanTreeNode(pRoot);
 
 	printf("==========计算带权路径长度==========\n");
-	printf("WeightLength=%d\n", calculateWeightLength(pRoot, 0));
+	printf("weightLength=%d\n", calculateweightLength(pRoot, 0));
 	printf("\n");
 
 	printf("==========各节点的哈夫曼树编码==========\n");
