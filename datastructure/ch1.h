@@ -11,4 +11,3 @@ int MaxSubsequenceSum2(int A[], int );
 int MaxSubsequenceSum3(int A[], int );
 int MaxSubsequenceSum4(int A[], int );
 double count_tick_2(int pf(int[], int), int A[], int );
-void demo_polynomial();
