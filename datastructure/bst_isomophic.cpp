@@ -48,7 +48,7 @@ Position BuildTree(struct TreeNode T[], int N)
 
 int Isomorphic(TreeNode T1[], TreeNode T2[], Position R1, Position R2)
 {
-	if ((R1 == Null) || (R2 == Null)) //只有有一个是Null,就检查是否都Null
+	if ((R1 == Null) || (R2 == Null)) //只要有一个是Null,就检查是否都Null
 		return (R1 == Null) && (R2 == Null);
 	else if (T1[R1].Element != T2[R2].Element) //节点本身不一样，就不算同构
 		return 0;

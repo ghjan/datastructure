@@ -155,7 +155,9 @@
     <ClInclude Include="bst_isomophic.h" />
     <ClInclude Include="ch2.h" />
     <ClInclude Include="demo.h" />
+    <ClInclude Include="floyd.h" />
     <ClInclude Include="shortestpath.h" />
+    <ClInclude Include="sixdegree.h" />
     <ClInclude Include="stack_chain.h" />
     <ClInclude Include="graph_lg.h" />
     <ClInclude Include="graph_m.h" />
@@ -191,7 +193,9 @@
     <ClCompile Include="bst_eq.cpp" />
     <ClCompile Include="bst_isomophic.cpp" />
     <ClCompile Include="count_tick.cpp" />
+    <ClCompile Include="floyd.cpp" />
     <ClCompile Include="shortestpath.cpp" />
+    <ClCompile Include="sixdegree.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
     <ClCompile Include="graph_lg.cpp" />
     <ClCompile Include="graph_m.cpp" />

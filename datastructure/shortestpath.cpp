@@ -7,7 +7,7 @@
 using namespace std;
 
 /* 构造一个空队列 */
-bool InitQueue(LinkQueue *Lp)
+bool InitQueue(GraphLinkQueue *Lp)
 {
 	cout << "Init Queue ..." << endl;
 	GraphNodePtr p = (GraphNodePtr)malloc(sizeof(GraphNode));
@@ -16,7 +16,7 @@ bool InitQueue(LinkQueue *Lp)
 	return true;
 }
 /* 销毁队列,包括头节点 */
-bool DestroyQueue(LinkQueue *Lp)
+bool DestroyQueue(GraphLinkQueue *Lp)
 {
 	cout << "Destroy Queue ..." << endl;
 	while (Lp->front)
@@ -29,7 +29,7 @@ bool DestroyQueue(LinkQueue *Lp)
 	return true;
 }
 /* 清为空队列，保留头节点 */
-bool ClearQueue(LinkQueue *Lp)
+bool ClearQueue(GraphLinkQueue *Lp)
 {
 	cout << "Clear Queue ..." << endl;
 	GraphNodePtr p = Lp->front->next;
@@ -47,12 +47,12 @@ bool ClearQueue(LinkQueue *Lp)
 	return true;
 }
 
-bool QueueEmpty(LinkQueue LQ)
+bool QueueEmpty(GraphLinkQueue LQ)
 {
 	return LQ.front == LQ.rear;
 }
 
-int QueueLength(LinkQueue LQ)
+int QueueLength(GraphLinkQueue LQ)
 {
 	int i = 0;
 	if (LQ.front == NULL)
@@ -67,7 +67,7 @@ int QueueLength(LinkQueue LQ)
 	return i;
 }
 
-bool GetHead(LinkQueue LQ, ElemType *pe)
+bool GetHead(GraphLinkQueue LQ, ElemType *pe)
 {
 	GraphNodePtr p;
 	if (LQ.front == LQ.rear)
@@ -79,7 +79,7 @@ bool GetHead(LinkQueue LQ, ElemType *pe)
 }
 
 /* 插入元素Elem为队列的新的队尾元素 */
-bool EnQueue(LinkQueue *Lp, ElemType Elem)
+bool EnQueue(GraphLinkQueue *Lp, ElemType Elem)
 {
 	cout << "EnQueue Item " << Elem << endl;
 	GraphNodePtr s = (GraphNodePtr)malloc(sizeof(GraphNode));
@@ -91,7 +91,7 @@ bool EnQueue(LinkQueue *Lp, ElemType Elem)
 	return true;
 }
 /*删除队列的队头元素,用*pe返回其值 */
-bool DeQueue(LinkQueue *Lp, ElemType *pe)
+bool DeQueue(GraphLinkQueue *Lp, ElemType *pe)
 {
 	if (Lp->front == Lp->rear)
 		return false;
@@ -106,7 +106,7 @@ bool DeQueue(LinkQueue *Lp, ElemType *pe)
 	return true;
 }
 /* 从队头到队尾依次对队列中每个元素输出 */
-bool QueueTraverse(LinkQueue LQ)
+bool QueueTraverse(GraphLinkQueue LQ)
 {
 	cout << "Queue Traverse ..." << endl;
 	GraphNodePtr p = LQ.front->next;
@@ -120,9 +120,9 @@ bool QueueTraverse(LinkQueue LQ)
 	return true;
 }
 
-int queue_link_demo(void)
+int graph_queue_link_demo(void)
 {
-	LinkQueue LQ;
+	GraphLinkQueue LQ;
 	InitQueue(&LQ);
 	for (int i = 0; i < 5; i++)
 		EnQueue(&LQ, i);

@@ -39,6 +39,8 @@
     <ClCompile Include="graph_m.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
     <ClCompile Include="shortestpath.cpp" />
+    <ClCompile Include="floyd.cpp" />
+    <ClCompile Include="sixdegree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -73,6 +75,8 @@
     <ClInclude Include="graph_m.h" />
     <ClInclude Include="stack_chain.h" />
     <ClInclude Include="shortestpath.h" />
+    <ClInclude Include="floyd.h" />
+    <ClInclude Include="sixdegree.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />

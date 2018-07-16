@@ -14,21 +14,21 @@ typedef struct
 {
 	GraphNodePtr front;/* 队头、队尾指针 */
 	GraphNodePtr rear;
-} LinkQueue;
+} GraphLinkQueue;
 
 /* 构造一个空队列 */
-bool InitQueue(LinkQueue *Lp);
+bool InitQueue(GraphLinkQueue *Lp);
 /* 销毁队列,包括头节点 */
-bool DestroyQueue(LinkQueue *Lp);
+bool DestroyQueue(GraphLinkQueue *Lp);
 /* 清为空队列，保留头节点 */
-bool ClearQueue(LinkQueue *Lp);
-bool QueueEmpty(LinkQueue LQ);
-int QueueLength(LinkQueue LQ);
-bool GetHead(LinkQueue LQ, ElemType *pe);
+bool ClearQueue(GraphLinkQueue *Lp);
+bool QueueEmpty(GraphLinkQueue LQ);
+int QueueLength(GraphLinkQueue LQ);
+bool GetHead(GraphLinkQueue LQ, ElemType *pe);
 /* 插入元素Elem为队列的新的队尾元素 */
-bool EnQueue(LinkQueue *Lp, ElemType Elem);
+bool EnQueue(GraphLinkQueue *Lp, ElemType Elem);
 /*删除队列的队头元素,用*pe返回其值 */
-bool DeQueue(LinkQueue *Lp, ElemType *pe);
+bool DeQueue(GraphLinkQueue *Lp, ElemType *pe);
 /* 从队头到队尾依次对队列中每个元素输出 */
-bool QueueTraverse(LinkQueue LQ);
+bool QueueTraverse(GraphLinkQueue LQ);
 

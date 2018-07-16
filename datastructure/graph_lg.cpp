@@ -24,7 +24,7 @@ LGraph CreateGraph(int VertexNum)
 //插入一条边，插入在头部
 void InsertEdge(LGraph Graph, Edge E)
 {
-	PtrToAdjVNode NewNode;
+	PtrToAdjVNode NewNode, NewNode2;
 	//插入边 <V1, V2>
 	//为V2建立新的邻接点
 	NewNode = (PtrToAdjVNode)malloc(sizeof(AdjVNode));
@@ -80,7 +80,7 @@ LGraph BuildGraph()
 	for (V = 0; V < Graph->Nv; V++)
 	{
 		if (Graph->G[V + 1].FirstEdge) {
-			scanf(" %c", &(Graph->G[V].Data)); //输入每一个顶点数据
+			scanf(" %d", &(Graph->G[V].Data)); //输入每一个顶点数据
 			V++;
 		}
 	}
