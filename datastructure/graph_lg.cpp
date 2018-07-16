@@ -36,7 +36,7 @@ void InsertEdge(LGraph Graph, Edge E)
 
 	//若是无向图,还要插入边 <V2, V1>
 	//为V2建立新的邻接点
-	NewNode2 = (PtrToAdjVNode)malloc(sizeof(AdjVNode));
+	PtrToAdjVNode NewNode2 = (PtrToAdjVNode)malloc(sizeof(AdjVNode));
 	NewNode2->AdjV = E->V1;
 	NewNode2->Weight = E->Weight;
 	//V1插入V2的表头

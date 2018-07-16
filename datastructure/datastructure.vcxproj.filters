@@ -38,6 +38,7 @@
     <ClCompile Include="graph_lg.cpp" />
     <ClCompile Include="graph_m.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
+    <ClCompile Include="listmerge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -71,6 +72,7 @@
     <ClInclude Include="graph_lg.h" />
     <ClInclude Include="graph_m.h" />
     <ClInclude Include="stack_chain.h" />
+    <ClInclude Include="listmerge.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />
