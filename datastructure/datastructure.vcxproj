@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="avl.h" />
+    <ClInclude Include="basesort.h" />
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="binary_search.h" />
     <ClInclude Include="bstree.h" />
@@ -185,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
+    <ClCompile Include="basesort.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />

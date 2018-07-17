@@ -34,3 +34,4 @@ int sixdegree_demo();
 int listmerge_demo();
 void demo_maxsubsequence();
 int gnode_queue_link_demo(void);
+int ShellSortSedgewickDemo();
