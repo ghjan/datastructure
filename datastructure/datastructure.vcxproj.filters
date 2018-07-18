@@ -42,6 +42,7 @@
     <ClCompile Include="floyd.cpp" />
     <ClCompile Include="sixdegree.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
+    <ClCompile Include="basesort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -79,6 +80,7 @@
     <ClInclude Include="shortestpath.h" />
     <ClInclude Include="floyd.h" />
     <ClInclude Include="sixdegree.h" />
+    <ClInclude Include="basesort.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />
