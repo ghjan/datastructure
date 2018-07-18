@@ -23,13 +23,14 @@ void Bubble_Sort(ElementType A[], int N)
 }
 
 //插入排序 一手纸牌 
-//相比较冒泡排序 插入排序相对来说 比交换的步数少
+//相比较冒泡排序 插入排序相对来说 比冒泡排序中的交换步数少
 void InsertionSort(ElementType A[], int N)
 { /* 插入排序 */
 	int P, i;
 	ElementType Tmp;
 
 	for (P = 1; P < N; P++) {
+		//插入排序的特点：0~P-1已经排序完毕
 		Tmp = A[P]; /* 取出未排序序列中的第一个元素 摸下一张牌*/
 		for (i = P; i > 0 && A[i - 1] > Tmp; i--) //从最后一张牌 向前比较
 			A[i] = A[i - 1]; /*依次与已排序序列中元素比较并右移  类似于搓牌移出空位*/
@@ -82,7 +83,7 @@ int incrementSeqFunc(int* incrementSeq, int length)
 	return i; // 排序轮数，每轮都使用（比上一轮）缩小的增量序列
 }
 
-void printArray(int data[], int size)
+void PrintArray(int data[], int size)
 {
 	int i;
 
@@ -92,16 +93,16 @@ void printArray(int data[], int size)
 	printf("\n");
 }
 //使用Sedgewick增长序列的希尔排序
-void ShellSortSedgewick(int* array, int length)
+void ShellSortSedgewick(ElementType array[] , int N)
 {
 	int incrementSeq[255]; // 增量序列(startup == 0).
-	int i, j, round = incrementSeqFunc(incrementSeq, length);
+	int i, j, round = incrementSeqFunc(incrementSeq, N);
 	int increment, temp;
 
 	for (; round >= 1; round--)
 	{
 		increment = incrementSeq[round - 1];
-		for (i = 1 * increment; i < length; i += increment) // 默认地,array[0*increment]有序，所以从1*increment开始.
+		for (i = 1 * increment; i < N; i += increment) // 默认地,array[0*increment]有序，所以从1*increment开始.
 		{
 			temp = array[i]; // 第1个无序成员.
 			for (j = i - increment; j >= 0; j -= increment) // j 在有序部分进行滑动.
@@ -127,20 +128,20 @@ int ShellSortSedgewickDemo()
 	int length = 15;
 
 	ShellSortSedgewick(array, length);
-	printArray(array, length);
+	PrintArray(array, length);
 	return 0;
 }
 ////////////////////选择排序和堆排序//////////////
 
 //扫描最小值位置
-int ScanForMin(ElementType A[], int start, int end) {
+int scanForMin(ElementType A[], int start, int end) {
 	return 0;
 }
 //选择排序
 void SelectionSort(ElementType A[], int N)
 {
 	for (int i = 0; i < N; i++) {
-		int MinPosition = ScanForMin(A, i, N - 1);
+		int MinPosition = scanForMin(A, i, N - 1);
 		/* 从A[i]到A[N–1]中找最小元，并将其位置赋给MinPosition */
 		Swap(&A[i], &A[MinPosition]);
 		/* 将未排序部分的最小元换到有序部分的最后位置*/
@@ -153,8 +154,8 @@ void Swap(ElementType *a, ElementType *b)
 }
 
 //最大堆
-void PercDown(ElementType A[], int p, int N)
-{ /* 改编代码4.24的PercDown( MaxHeap H, int p )    */
+void percDown(ElementType A[], int p, int N)
+{ /* 改编代码4.24的percDown( MaxHeap H, int p )    */
   /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */
 	int Parent, Child;
 	ElementType X;
@@ -177,12 +178,12 @@ void HeapSort(ElementType A[], int N)
 	int i;
 
 	for (i = N / 2 - 1; i >= 0; i--)/* 建立最大堆 */
-		PercDown(A, i, N);
+		percDown(A, i, N);
 
 	for (i = N - 1; i > 0; i--) {
 		/* 删除最大堆顶 */
 		Swap(&A[0], &A[i]); /* 见代码7.1 */
-		PercDown(A, 0, i);
+		percDown(A, 0, i);
 	}
 }
 
@@ -190,7 +191,7 @@ void HeapSort(ElementType A[], int N)
 /* 归并排序 - 递归实现 */
 
 /* L = 左边起始位置, R = 右边起始位置, RightEnd = 右边终点位置*/
-void Merge(ElementType A[], ElementType TmpA[], int L, int R, int RightEnd)
+void merge(ElementType A[], ElementType TmpA[], int L, int R, int RightEnd)
 { /* 将有序的A[L]~A[R-1]和A[R]~A[RightEnd]归并成一个有序序列 */
 	int LeftEnd, NumElements, Tmp;
 	int i;
@@ -215,15 +216,15 @@ void Merge(ElementType A[], ElementType TmpA[], int L, int R, int RightEnd)
 		A[RightEnd] = TmpA[RightEnd]; /* 将有序的TmpA[]复制回A[] */
 }
 
-void Msort(ElementType A[], ElementType TmpA[], int L, int RightEnd)
+void msort(ElementType A[], ElementType TmpA[], int L, int RightEnd)
 { /* 核心递归排序函数 */
 	int Center;
 
 	if (L < RightEnd) {
 		Center = (L + RightEnd) / 2;
-		Msort(A, TmpA, L, Center);              /* 递归解决左边 */
-		Msort(A, TmpA, Center + 1, RightEnd);     /* 递归解决右边 */
-		Merge(A, TmpA, L, Center + 1, RightEnd);  /* 合并两段有序序列 */
+		msort(A, TmpA, L, Center);              /* 递归解决左边 */
+		msort(A, TmpA, Center + 1, RightEnd);     /* 递归解决右边 */
+		merge(A, TmpA, L, Center + 1, RightEnd);  /* 合并两段有序序列 */
 	}
 }
 
@@ -233,27 +234,28 @@ void MergeSort1(ElementType A[], int N)
 	TmpA = (ElementType *)malloc(N * sizeof(ElementType));
 
 	if (TmpA != NULL) {
-		Msort(A, TmpA, 0, N - 1);
+		msort(A, TmpA, 0, N - 1);
 		free(TmpA);
 	}
 	else printf("空间不足");
 }
 
 /* 归并排序 - 循环实现 */
-/* 这里Merge函数在递归版本中给出 */
+/* 这里merge函数在递归版本中给出 */
 /* length = 当前有序子列的长度*/
-void Merge_pass(ElementType A[], ElementType TmpA[], int N, int length)
+void merge_pass(ElementType A[], ElementType TmpA[], int N, int length)
 { /* 两两归并相邻有序子列 */
 	int i, j;
 
 	for (i = 0; i <= N - 2 * length; i += 2 * length)
-		Merge(A, TmpA, i, i + length, i + 2 * length - 1);
+		merge(A, TmpA, i, i + length, i + 2 * length - 1);
 	if (i + length < N) /* 归并最后2个子列*/
-		Merge(A, TmpA, i, i + length, N - 1);
+		merge(A, TmpA, i, i + length, N - 1);
 	else /* 最后只剩1个子列*/
 		for (j = i; j < N; j++) TmpA[j] = A[j];
 }
 
+//归并排序 - 循环实现
 void MergeSort2(ElementType A[], int N)
 {
 	int length;
@@ -264,9 +266,9 @@ void MergeSort2(ElementType A[], int N)
 
 	if (TmpA != NULL) {
 		while (length < N) {
-			Merge_pass(A, TmpA, N, length);
+			merge_pass(A, TmpA, N, length);
 			length *= 2;
-			Merge_pass(TmpA, A, N, length);
+			merge_pass(TmpA, A, N, length);
 			length *= 2;
 		}
 		free(TmpA);

@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "ch1.h"
+#include "counttick.h"
 using namespace std;
 
 double f1(int n, double a[], double x) {
@@ -23,9 +24,9 @@ double f2(int n, double a[], double x) {
 }
 
 void test_subsequence(int count) {
-	double duration1 = count_tick(f1, count);
+	double duration1 = CountTick(f1, count);
 	printf("duration1 = %6.2e\n", duration1);
-	double duration2 = count_tick(f2, count);
+	double duration2 = CountTick(f2, count);
 	printf("duration2 = %6.2e\n", duration2);
 
 }
@@ -36,13 +37,13 @@ void demo_maxsubsequence() {
 		A[i] = rand() % 100;
 		A[i] = (A[i] % 3 > 0 ? 1 : -1)*A[i];
 	}
-	double duration4 = count_tick_2(MaxSubsequenceSum4, A, N);
+	double duration4 = CountTick2(MaxSubsequenceSum4, A, N);
 	printf("duration4 = %10.5e\n", duration4);
-	double duration3 = count_tick_2(MaxSubsequenceSum3, A, N);
+	double duration3 = CountTick2(MaxSubsequenceSum3, A, N);
 	printf("duration3 = %10.5e\n", duration3);
-	double duration2 = count_tick_2(MaxSubsequenceSum2, A, N);
+	double duration2 = CountTick2(MaxSubsequenceSum2, A, N);
 	printf("duration2 = %10.5e\n", duration2);
-	double duration1 = count_tick_2(MaxSubsequenceSum1, A, N);
+	double duration1 = CountTick2(MaxSubsequenceSum1, A, N);
 	printf("duration1 = %10.5e\n", duration1);
 
 }

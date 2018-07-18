@@ -1,5 +1,6 @@
 #pragma once
 #pragma warning(disable:4996)
+#include "polymath.h"
 
 int sort_demo();
 int sort_ordered_demo();
@@ -7,8 +8,8 @@ int sort_ordered_demo();
 int queue_link_demo(void);
 int queue_sequence_demo(void);
 
-int polyadd_demo();
-int polymul_demo();
+int polyadd_demo(Polynomial p1, Polynomial p2);
+int polymul_demo(Polynomial p1, Polynomial p2);
 int polymath_demo();
 
 int BinarySearch_demo();
@@ -35,3 +36,5 @@ int listmerge_demo();
 void demo_maxsubsequence();
 int gnode_queue_link_demo(void);
 int ShellSortSedgewickDemo();
+void SortCompareDemo();
+void WhichSortMethodDemo();

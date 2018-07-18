@@ -43,6 +43,8 @@
     <ClCompile Include="sixdegree.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="basesort.cpp" />
+    <ClCompile Include="sortCompare.cpp" />
+    <ClCompile Include="whichsortmethod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -81,6 +83,8 @@
     <ClInclude Include="floyd.h" />
     <ClInclude Include="sixdegree.h" />
     <ClInclude Include="basesort.h" />
+    <ClInclude Include="counttick.h" />
+    <ClInclude Include="whichsortmethod.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />

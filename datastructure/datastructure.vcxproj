@@ -155,6 +155,7 @@
     <ClInclude Include="bst_eq.h" />
     <ClInclude Include="bst_isomophic.h" />
     <ClInclude Include="ch2.h" />
+    <ClInclude Include="counttick.h" />
     <ClInclude Include="demo.h" />
     <ClInclude Include="floyd.h" />
     <ClInclude Include="listmerge.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ch1.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="whichsortmethod.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
@@ -200,6 +202,8 @@
     <ClCompile Include="listmerge.cpp" />
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="sixdegree.cpp" />
+    <ClCompile Include="sortCompare.cpp" />
+    <ClCompile Include="whichsortmethod.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
     <ClCompile Include="graph_lg.cpp" />
     <ClCompile Include="graph_m.cpp" />

@@ -5,7 +5,7 @@
 
 #define MAXN  10
 
-double count_tick(double pf(int , double [], double ), int count) {
+double CountTick(double pf(int , double [], double ), int count) {
 	double a[MAXN];
 	for (int i = 0;i < MAXN; i++) a[i] = (double)i;
 
@@ -18,7 +18,7 @@ double count_tick(double pf(int , double [], double ), int count) {
 
 }
 
-double count_tick_2(int pf(int[], int ), int A[], int N) {
+double CountTick2(int pf(int[], int ), int A[], int N) {
 
 	clock_t start, stop;
 	start = clock();
@@ -27,3 +27,4 @@ double count_tick_2(int pf(int[], int ), int A[], int N) {
 	return (double)(stop - start) / CLK_TCK;
 
 }
+
