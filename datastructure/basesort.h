@@ -1,9 +1,13 @@
 #pragma once
+#include "array.h"
 
-#define ElementType int
+#define CUTOFF 100
+struct Node {
+	ElementType key1, key2;
+};
 
-//打印数组
-void PrintArray(int data[], int size);
+void PrintArray(int data[], int size);//打印数组
+void PrintNode(Node data[], int size);//打印节点
 
 //冒泡排序
 void Bubble_Sort(ElementType A[], int N);
@@ -22,3 +26,6 @@ void HeapSort(ElementType A[], int N);//堆排序
 //归并排序
 void MergeSort1(ElementType A[], int N); //归并排序（递归实现）
 void MergeSort2(ElementType A[], int N); //归并排序（循环实现）
+
+//快速排序
+void QuickSort(ElementType A[], int N);

@@ -38,3 +38,7 @@ int gnode_queue_link_demo(void);
 int ShellSortSedgewickDemo();
 void SortCompareDemo();
 void WhichSortMethodDemo();
+
+void QsortWithLibDemo1();
+void QsortWithLibDemo2();
+void QuickSortDemo();

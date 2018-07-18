@@ -159,6 +159,7 @@
     <ClInclude Include="demo.h" />
     <ClInclude Include="floyd.h" />
     <ClInclude Include="listmerge.h" />
+    <ClInclude Include="array.h" />
     <ClInclude Include="shortestpath.h" />
     <ClInclude Include="sixdegree.h" />
     <ClInclude Include="stack_chain.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="printN.cpp" />
     <ClCompile Include="list_1.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="array.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />
