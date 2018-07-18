@@ -45,6 +45,7 @@
     <ClCompile Include="basesort.cpp" />
     <ClCompile Include="sortCompare.cpp" />
     <ClCompile Include="whichsortmethod.cpp" />
+    <ClCompile Include="radixsort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -85,6 +86,7 @@
     <ClInclude Include="basesort.h" />
     <ClInclude Include="counttick.h" />
     <ClInclude Include="whichsortmethod.h" />
+    <ClInclude Include="radixsort.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />
