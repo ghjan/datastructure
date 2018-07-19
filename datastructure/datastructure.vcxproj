@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\datastructure\datastructure\main.cpp" />
+    <ClCompile Include="agestastistics.cpp" />
     <ClCompile Include="basesort.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />

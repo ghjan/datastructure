@@ -89,3 +89,12 @@ int SplitArrayWithPivot(ElementType A[], int Low, int High, int Pivot) {
 	}
 	return Low;
 }
+
+double CountTickForSort(void pf(ElementType[], int), ElementType A[], int N) {
+
+	clock_t start, stop;
+	start = clock();
+	pf(A, N);
+	stop = clock();
+	return (double)(stop - start) / CLK_TCK;
+}

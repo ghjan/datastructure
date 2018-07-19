@@ -44,3 +44,5 @@ void QsortWithLibDemo2();
 void QuickSortDemo();
 
 int RadixSortDemo();
+
+int SolveAgeStastistics();

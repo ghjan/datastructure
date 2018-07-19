@@ -357,14 +357,12 @@ void Qsort(ElementType A[], int Left, int Right)
 		Pivot = Median3(A, Left, Right); /* 选基准 */
 		Low = Left; High = Right - 1;
 
-		//while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
-		//	while (A[++Low] < Pivot);
-		//	while (A[--High] > Pivot);
-		//	if (Low < High) Swap(&A[Low], &A[High]);
-		//	else break;
-		//}
-		//分割数组，将序列中比基准小的移到基准左边，大的移到右边
-		SplitArrayWithPivot(A, Left, Right-1, Pivot);
+		while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
+			while (A[++Low] < Pivot);
+			while (A[--High] > Pivot);
+			if (Low < High) Swap(&A[Low], &A[High]);
+			else break;
+		}
 
 		Swap(&A[Low], &A[Right - 1]);   /* 将基准换到正确的位置 */
 		Qsort(A, Left, Low - 1);    /* 递归解决左边 */
@@ -379,10 +377,20 @@ void QuickSort(ElementType A[], int N)
 }
 
 void QuickSortDemo() {
+	//int N = MaxN;
+	//ElementType *A = new int[N];
+	//int dataset = 5; //随机整数
+	//GenerateArray(A, N, dataset);
+	//QuickSort(A, N);
+	//PrintArray(A, 100);
+
+	ElementType BaseA[MaxN], A[MaxN];
+	int dataset = 5;
+	GenerateArray(BaseA, MaxN, dataset);
+	printf("---------dataset:%d\n", dataset);
 	int N = MaxN;
-	ElementType *A = new int[N];
-	int dataset = 5; //随机整数
-	GenerateArray(A, N, dataset);
-	QuickSort(A, N);
-	PrintArray(A, N);
+	Copy(BaseA, A, MaxN);
+	double duration1 = CountTickForSort(QuickSort, A, MaxN);
+	printf("duration(QuickSort) = %10.5e\n", duration1);
+	PrintArray(A, 100);
 }

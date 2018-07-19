@@ -27,4 +27,3 @@ double CountTick2(int pf(int[], int ), int A[], int N) {
 	return (double)(stop - start) / CLK_TCK;
 
 }
-
