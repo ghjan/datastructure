@@ -9,35 +9,51 @@
 #pragma warning(disable:4996)
 
 
-NodeWithkeys* readPATData(int *N, int *K, int *M)
+void readPATData(NodeWithkeys* nodes, int *N, int *K, int *M)
 {
 	scanf("%d %d %d", N, K, M);
 
 	int data;
 	int *fullMarks = new int[*K];
-	for (int i = 0; i < *K && scanf(" %d", &data) != EOF; i++) {
+	for (int i = 0; i < *K && scanf("%d", &data) != EOF; i++) {
 		fullMarks[i] = data;
 	}
 
-	NodeWithkeys *nodes = new NodeWithkeys[*M];
+	nodes = (NodeWithkeys *)malloc(*M * sizeof(struct NodeWithkeys)); //new NodeWithkeys[*M];
 	bool isFirst = true;
-	char userid[]="";
-	int userid, problemId, score;
-	for (int j = 0; j < *M && scanf("%s %d %d", userid, &problemId, &score) != EOF; j++) {
-		int jj = 0;
-		for (jj = 0; userid[jj] == '0'; jj++);
-		nodes[j].keys[0] = atoi(userid + jj);
-		nodes[j].keys[1] = problemId;
-		nodes[j].keys[2] = score;
+	char userid[5];
+	int problemId, score;
+	for (int j = 0; j < *M * 3; j++) {
+		int index = j % 3;
+		switch (index) {
+		case 0:
+			if (scanf("%s", &userid) != EOF) {
+				data = atoi(userid);
+			}
+			else {
+				return;
+			}
+			nodes[j / 3].keys = (int *)malloc(3 * sizeof(int));
+			break;
+		case 1:
+		case 2:
+			if (scanf("%d", &data) == EOF) {
+				return;
+			}
+			break;
+		}
+
+		nodes[j / 3].keys[index] = data;
+
 	}
 
-	return nodes;
 }
 
 int SolvePatJudge() {
 	/*--------------- 对结构体Node中的键值key1,key2排序 ---------------*/
 	int N, K, M;
-	NodeWithkeys *nodesA = readPATData(&N, &K, &M);
+	NodeWithkeys *nodesA = NULL;
+	readPATData(nodesA, &N, &K, &M);
 
 	/* 调用接口 */
 	qsort(nodesA, M, sizeof(struct NodeWithkeys), Compare3Keys);
