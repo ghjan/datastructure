@@ -2,7 +2,7 @@
 #include "basesort.h"
 
 /* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */
-#define MaxDigit 6
+#define MaxDigit 5
 #define Radix 10
 /* 桶元素结点 */
 typedef struct RadixNode *PtrToRadixNode;

@@ -47,27 +47,19 @@ PtrToRadixNode lsdRadixSort(PtrToRadixNode List, bool isNeg) {
 			tmp = p; p = p->next;
 			if (!isNeg) {
 				toMaxD = toMaxD && tmp->key < RADIX_FLAGS[D - 1];// pow(10, D);
-
-				/* 插入B[Di]号桶尾 */
-				tmp->next = NULL;
-				if (bucket[Di].head == NULL)
-					bucket[Di].head = bucket[Di].tail = tmp;
-				else {
-					bucket[Di].tail->next = tmp;
-					bucket[Di].tail = tmp;
-				}
 			}
 			else {//负数
 				toMaxD = toMaxD && tmp->key > NEG_RADIX_FLAGS[D - 1];// pow(10, D);
-				//作为新的桶头
-				tmp->next = bucket[Di].head;
-				if (bucket[Di].head == NULL)
-					bucket[Di].head = bucket[Di].tail = tmp;
-				else {
-					bucket[Di].head = tmp;
-				}
 			}
 
+			/* 插入B[Di]号桶尾 */
+			tmp->next = NULL;
+			if (bucket[Di].head == NULL)
+				bucket[Di].head = bucket[Di].tail = tmp;
+			else {
+				bucket[Di].tail->next = tmp;
+				bucket[Di].tail = tmp;
+			}
 		}
 		if (!toMaxD) {
 			//是否应该停止循环了，也就是说所有的数都集中在bucket[0]里面了
@@ -126,37 +118,31 @@ void LSDRadixSort(ElementType A[], int N)
 
 	/* 将List倒入A[]并释放空间 */
 	int i = 0;
-	for (; i < N; i++) {
+	for (; ListNeg != NULL && i < N; i++) {
 		tmp = ListNeg;
 		ListNeg = ListNeg->next;
 		A[i] = tmp->key;
-		if (ListNeg == NULL) {
-			break;
-		}
+
 		free(tmp);
 	}
-	for (; i < N; i++) {
+	for (; List != NULL && i < N; i++) {
 		tmp = List;
 		List = List->next;
 		A[i] = tmp->key;
-		if (List == NULL) {
-			break;
-		}
 		free(tmp);
 	}
 
 }
 
-
 void MSD(ElementType A[], int L, int R, int D, bool isNeg)
 { /* 核心递归函数: 对A[L]...A[R]的第D位数进行排序 */
 	int Di, i, j;
-	Bucket B;
+	Bucket bucket;
 	PtrToRadixNode tmp, p, List = NULL;
 	if (D == 0) return; /* 递归终止条件 */
 
 	for (i = 0; i < Radix; i++) /* 初始化每个桶为空链表 */
-		B[i].head = B[i].tail = NULL;
+		bucket[i].head = bucket[i].tail = NULL;
 	for (i = L; i <= R; i++) { /* 将原始序列逆序存入初始链表List */
 		tmp = (PtrToRadixNode)malloc(sizeof(struct RadixNode));
 		tmp->key = A[i];
@@ -166,69 +152,107 @@ void MSD(ElementType A[], int L, int R, int D, bool isNeg)
 	/* 下面是分配的过程 */
 	p = List;
 	while (p) {
+
 		Di = GetDigit(p->key, D, isNeg); /* 获得当前元素的当前位数字 */
 								  /* 从List中摘除 */
 		tmp = p; p = p->next;
-		/* 插入B[Di]号桶 */
-		if (B[Di].head == NULL) B[Di].tail = tmp;
-		tmp->next = B[Di].head;
-		B[Di].head = tmp;
+
+		if (!isNeg) {
+			/* 插入B[Di]号桶 */
+			if (bucket[Di].head == NULL) bucket[Di].tail = tmp;
+			tmp->next = bucket[Di].head;
+			bucket[Di].head = tmp;
+		}
+		else { //插入B[Di]号桶尾
+			tmp->next = NULL;
+			if (bucket[Di].head == NULL || bucket[Di].tail == NULL)
+				bucket[Di].head = bucket[Di].tail = tmp;
+			else {
+				bucket[Di].tail->next = tmp;
+				bucket[Di].tail = tmp;
+			}
+		}
 	}
 	/* 下面是收集的过程 */
 	i = j = L; /* i, j记录当前要处理的A[]的左右端下标 */
-	for (Di = 0; Di < Radix; Di++) { /* 对于每个桶 */
-		if (B[Di].head) { /* 将非空的桶整桶倒入A[], 递归排序 */
-			p = B[Di].head;
-			while (p) {
-				tmp = p;
-				p = p->next;
-				A[j++] = tmp->key;
-				free(tmp);
+	if (!isNeg) {
+		for (Di = 0; Di < Radix; Di++) { /* 对于每个桶 */
+			if (bucket[Di].head) { /* 将非空的桶整桶倒入A[], 递归排序 */
+				p = bucket[Di].head;
+				while (p) {
+					tmp = p;
+					p = p->next;
+					A[j++] = tmp->key;
+					free(tmp);
+				}
+				/* 递归对该桶数据排序, 位数减1 */
+				MSD(A, i, j - 1, D - 1, isNeg);
+				i = j; /* 为下一个桶对应的A[]左端 */
 			}
-			/* 递归对该桶数据排序, 位数减1 */
-			MSD(A, i, j - 1, D - 1, isNeg);
-			i = j; /* 为下一个桶对应的A[]左端 */
 		}
+	}
+	else {
+		for (Di = Radix - 1; Di >= 0; Di--) { /* 对于每个桶 */
+			if (bucket[Di].head) { /* 将非空的桶整桶倒入A[], 递归排序 */
+				p = bucket[Di].head;
+				while (p) {
+					tmp = p;
+					p = p->next;
+					A[j++] = tmp->key;
+					free(tmp);
+				}
+				/* 递归对该桶数据排序, 位数减1 */
+				MSD(A, i, j - 1, D - 1, isNeg);
+				i = j; /* 为下一个桶对应的A[]左端 */
+			}
+		}
+
 	}
 }
 
 void MSDRadixSort(ElementType A[], int N)
 { /* 统一接口 */
-	MSD(A, 0, N - 1, MaxDigit, false);
+
+  //分割数组，将序列中比基准小的移到基准左边，大的移到右边
+	int Low = 0;
+	int High = N - 1;
+	int Pivot = 0;
+	int positionSplit = SplitArrayWithPivot(A, Low, High, Pivot);
+
+	MSD(A, Low, positionSplit - 1, MaxDigit, true);
+	MSD(A, positionSplit, High, MaxDigit, false);
 }
 
-void RadixSortDemo() {
-	int BaseA[] = { 100, -300, -32, -29, 6, 2, 19, 25, 15, 55,
-		35, 5, 110, 120, -240 };
-	int A[15];
-	int N = 15;
-	Copy(BaseA, A, 15);
-	LSDRadixSort(A, N);
-	PrintArray(A, 15);
+int RadixSortDemo() {
+	//int BaseA[] = { 100, -300, -32, -29, 6, 2, 19, 25, 15, 55,
+	//	35, 5, 110, 120, -240 };
+	//int A[15];
+	//int N = 15;
+	//Copy(BaseA, A, 15);
+	//LSDRadixSort(A, N);
+	//PrintArray(A, 15);
 
 	//Copy(BaseA, A, 15);
 	//MSDRadixSort(A, N);
 	//PrintArray(A, 15);
 
-	//ElementType BaseA[MaxN], A[MaxN];
-	//int dataset = 5;
-	//GenerateArray(BaseA, MaxN, dataset);
-	//printf("---------dataset:%d\n", dataset);
-	//int N = MaxN;
-	//Copy(BaseA, A, MaxN);
-	//LSDRadixSort(A, N);
-	//PrintArray(A, 100);
+	ElementType BaseA[MaxN], A[MaxN];
+	int dataset = 5;
+	GenerateArray(BaseA, MaxN, dataset);
+	printf("---------dataset:%d\n", dataset);
+	int N = MaxN;
 
-	//Copy(BaseA, A, 15);
-	//MSDRadixSort(A, N);
-	//PrintArray(A, 100);
-	//for (int D = 1; D <= MaxDigit; D++) {
-	//	printf("%d ", GetDigit(125, D, false));
-	//}
+	printf("---LSDRadixSort---\n");
+	Copy(BaseA, A, N);
+	LSDRadixSort(A, N);
+	PrintArray(A, 100);
 
-	//for (int D = 1; D <= MaxDigit; D++) {
-	//	printf("%d ", GetDigit(-125, D, true));
-	//}
+	printf("---MSDRadixSort---\n");
+	Copy(BaseA, A, N);
+	MSDRadixSort(A, N);
+	PrintArray(A, 100);
+	
+	return 0;
 }
 
 

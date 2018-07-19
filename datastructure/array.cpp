@@ -77,3 +77,15 @@ void PrintNode(Node data[], int size)
 
 	printf("\n");
 }
+
+//分割数组，将序列中比基准小的移到基准左边，大的移到右边
+int SplitArrayWithPivot(ElementType A[], int Low, int High, int Pivot) {
+
+	while (Low < High) {
+		while (A[Low] < Pivot)Low++;
+		while (A[High] >= Pivot)High--;
+		if (Low < High) Swap(&A[Low], &A[High]);
+		else break;
+	}
+	return Low;
+}

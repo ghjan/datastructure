@@ -356,12 +356,16 @@ void Qsort(ElementType A[], int Left, int Right)
 	if (Cutoff <= Right - Left) { /* 如果序列元素充分多，进入快排 */
 		Pivot = Median3(A, Left, Right); /* 选基准 */
 		Low = Left; High = Right - 1;
-		while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
-			while (A[++Low] < Pivot);
-			while (A[--High] > Pivot);
-			if (Low < High) Swap(&A[Low], &A[High]);
-			else break;
-		}
+
+		//while (1) { /*将序列中比基准小的移到基准左边，大的移到右边*/
+		//	while (A[++Low] < Pivot);
+		//	while (A[--High] > Pivot);
+		//	if (Low < High) Swap(&A[Low], &A[High]);
+		//	else break;
+		//}
+		//分割数组，将序列中比基准小的移到基准左边，大的移到右边
+		SplitArrayWithPivot(A, Left, Right-1, Pivot);
+
 		Swap(&A[Low], &A[Right - 1]);   /* 将基准换到正确的位置 */
 		Qsort(A, Left, Low - 1);    /* 递归解决左边 */
 		Qsort(A, Low + 1, Right);   /* 递归解决右边 */
