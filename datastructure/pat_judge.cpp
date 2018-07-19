@@ -20,30 +20,12 @@ void readPATData(NodeWithkeys* nodes, int *N, int *K, int *M)
 	}
 
 	nodes = (NodeWithkeys *)malloc(*M * sizeof(struct NodeWithkeys)); //new NodeWithkeys[*M];
-	bool isFirst = true;
-	char userid[5];
-	int problemId, score;
-	for (int j = 0; j < *M * 3; j++) {
-		int index = j % 3;
-		switch (index) {
-		case 0:
-			if (scanf("%s", &userid) != EOF) {
-				data = atoi(userid);
-			}
-			else {
-				return;
-			}
-			nodes[j / 3].keys = (int *)malloc(3 * sizeof(int));
-			break;
-		case 1:
-		case 2:
-			if (scanf("%d", &data) == EOF) {
-				return;
-			}
-			break;
-		}
-
-		nodes[j / 3].keys[index] = data;
+	int userid, problemId, score;
+	for (int j = 0; j < *M && scanf("%d %d %d", &userid, &problemId, &score) != EOF; j++) {
+		nodes[j].keys=(int *)malloc(3 * sizeof(int));
+		nodes[j].keys[0] = userid;
+		nodes[j].keys[1] = problemId;
+		nodes[j].keys[2] = score;
 
 	}
 
@@ -59,7 +41,7 @@ int SolvePatJudge() {
 	qsort(nodesA, M, sizeof(struct NodeWithkeys), Compare3Keys);
 	PrintNode(nodesA, M, 3);
 
-	delete[]nodesA;
+	free(nodesA);
 
 	return 0;
 }
