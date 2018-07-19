@@ -19,16 +19,17 @@ int GetDigit(int X, int D)
 	return d;
 }
 
+// 基数排序 - 次位优先
 void LSDRadixSort(ElementType A[], int N)
 { /* 基数排序 - 次位优先 */
 	int D, Di, i;
 	Bucket B;
-	PtrToNode tmp, p, List = NULL;
+	PtrToRadixNode tmp, p, List = NULL;
 
 	for (i = 0; i<Radix; i++) /* 初始化每个桶为空链表 */
 		B[i].head = B[i].tail = NULL;
 	for (i = 0; i<N; i++) { /* 将原始序列逆序存入初始链表List */
-		tmp = (PtrToNode)malloc(sizeof(struct Node));
+		tmp = (PtrToRadixNode)malloc(sizeof(struct RadixNode));
 		tmp->key = A[i];
 		tmp->next = List;
 		List = tmp;
@@ -75,13 +76,13 @@ void MSD(ElementType A[], int L, int R, int D)
 { /* 核心递归函数: 对A[L]...A[R]的第D位数进行排序 */
 	int Di, i, j;
 	Bucket B;
-	PtrToNode tmp, p, List = NULL;
+	PtrToRadixNode tmp, p, List = NULL;
 	if (D == 0) return; /* 递归终止条件 */
 
 	for (i = 0; i<Radix; i++) /* 初始化每个桶为空链表 */
 		B[i].head = B[i].tail = NULL;
 	for (i = L; i <= R; i++) { /* 将原始序列逆序存入初始链表List */
-		tmp = (PtrToNode)malloc(sizeof(struct Node));
+		tmp = (PtrToRadixNode)malloc(sizeof(struct RadixNode));
 		tmp->key = A[i];
 		tmp->next = List;
 		List = tmp;

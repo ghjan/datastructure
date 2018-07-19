@@ -27,5 +27,3 @@ void MergeSort2(ElementType A[], int N); //归并排序（循环实现）
 //快速排序
 void QuickSort(ElementType A[], int N);
 
-// 基数排序 - 次位优先
-void LSDRadixSort(ElementType A[], int N);

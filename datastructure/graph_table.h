@@ -7,7 +7,7 @@ typedef struct EdgeNode {//边顶点
 	int index;//该顶点下标  
 	struct EdgeNode *next;//存储下一个边顶点  
 }EdgeNode;
-typedef struct HeadNode {//表顶点  
+typedef struct HeadBucketNode {//表顶点  
 	char data;
 	EdgeNode *edgeNode;
 }HeadNode, AdjacencyList[MAX_VALUE];
