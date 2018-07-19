@@ -68,12 +68,17 @@ void PrintArray(int data[], int size)
 	printf("\n");
 }
 
-void PrintNode(Node data[], int size)
+void PrintNode(NodeWithkeys data[], int size, int countKeys)
 {
 	int i;
 
-	for (i = 0; i < size; i++)
-		printf("(%d %d) ", data[i].key1, data[i].key2);
+	for (i = 0; i < size; i++) {
+		printf("(");
+		for (int j = 0; j < countKeys; j++)
+			printf("%d", data[i].keys[j]);
+		printf(") ");
+
+	}
 
 	printf("\n");
 }

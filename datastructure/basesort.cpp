@@ -85,7 +85,7 @@ int incrementSeqFunc(int* incrementSeq, int length)
 }
 
 //使用Sedgewick增长序列的希尔排序
-void ShellSortSedgewick(ElementType array[] , int N)
+void ShellSortSedgewick(ElementType array[], int N)
 {
 	int incrementSeq[255]; // 增量序列(startup == 0).
 	int i, j, round = incrementSeqFunc(incrementSeq, N);
@@ -288,22 +288,48 @@ void QsortWithLibDemo1() {
 	PrintArray(A, 15);
 }
 
-/*--------------- 一般情况下，对结构体Node中的某键值key排序 ---------------*/
-
-int compare2keys(const void *a, const void *b)
-{ /* 比较两种键值：按key1非升序排列；如果key1相等，则按key2非降序排列 */
+/*--------------- 一般情况下，对结构体Node中的某几个键值keys排序 ---------------*/
+/*
+sorts[i]表示对应于第i个key：
+	1：升序
+	-1：降序
+*/
+int CompareKeys(const void *a, const void *b, int countKeys, int sorts[])
+{ 
 	int k;
-	if (((const struct Node*)a)->key1 < ((const struct Node*)b)->key1)
-		k = 1;
-	else if (((const struct Node*)a)->key1 >((const struct Node*)b)->key1)
-		k = -1;
-	else { /* 如果key1相等 */
-		if (((const struct Node*)a)->key2 < ((const struct Node*)b)->key2)
-			k = -1;
-		else
-			k = 1;
+	for (int i = 0; i < countKeys; i++) {
+		if (((const struct NodeWithkeys*)a)->keys[i] == ((const struct NodeWithkeys*)b)->keys[i]) {
+			continue;
+		}
+		if (sorts[i] = 1) { //表示升序
+			if (((const struct NodeWithkeys*)a)->keys[i] < ((const struct NodeWithkeys*)b)->keys[i]) {
+				k = -1;
+			}
+			else
+				k = 1;
+		}
+		else { //降序
+			if (((const struct NodeWithkeys*)a)->keys[i] < ((const struct NodeWithkeys*)b)->keys[i]) {
+				k = 1;
+			}
+			else {
+				k = -1;
+			}
+		}
+		break;
+
 	}
 	return k;
+}
+/* 比较两种键值：按key1降序排列；如果key1相等，则按key2升序排列 */
+int Compare2Keys(const void *a, const void *b) {
+	int sorts[] = { -1, 1 };
+	return CompareKeys(a, b, 2, sorts);
+}
+/* 比较三种键值：按key1降序，key2降序，key3升序排列 */
+int Compare3Keys(const void *a, const void *b) {
+	int sorts[] = { -1, -1, 1 };
+	return CompareKeys(a, b, 3, sorts);
 }
 
 
@@ -317,18 +343,18 @@ void QsortWithLibDemo2() {
 	int dataset = 5; //随机整数
 	GenerateArray(A, N, dataset);
 	GenerateArray(B, N, dataset);
-	Node *nodesA = new Node[N];
+	NodeWithkeys *nodesA = new NodeWithkeys[N];
 	for (int i = 0; i < N; i++) {
-		nodesA[i].key1 = A[i];
-		nodesA[i].key2 = B[i];
+		nodesA[i].keys[0] = A[i];
+		nodesA[i].keys[1] = B[i];
 	}
 	/* 调用接口 */
-	qsort(nodesA, N, sizeof(struct Node), compare2keys);
-	PrintNode(nodesA, N);
+	qsort(nodesA, N, sizeof(struct NodeWithkeys), Compare2Keys);
+	PrintNode(nodesA, N, 2);
 
 	delete[]A;
 	delete[]B;
-	delete []nodesA;
+	delete[]nodesA;
 }
 
 
@@ -383,6 +409,7 @@ void QuickSortDemo() {
 	//GenerateArray(A, N, dataset);
 	//QuickSort(A, N);
 	//PrintArray(A, 100);
+	//delete []A;
 
 	ElementType BaseA[MaxN], A[MaxN];
 	int dataset = 5;

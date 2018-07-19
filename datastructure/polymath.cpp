@@ -160,6 +160,8 @@ Polynomial createPolynomial(int *coef, int *exp, int length) {
 		tail->link = node;
 		tail = node;
 	}
+	delete[]new_order;
+	delete[]coef_o;
 	return polynomial->link;
 }
 
@@ -183,7 +185,11 @@ Polynomial clonePolymialOrdered(Polynomial poly)
 		coef[i] = tail->coef;
 		tail = tail->link;
 	}
-	return createPolynomial(coef, exp, length);
+	delete[]new_order;
+	Polynomial  polyCreated = createPolynomial(coef, exp, length);
+	delete[]exp;
+	delete[]coef;
+	return polyCreated;
 }
 
 void PolySort(Polynomial poly) {
@@ -222,7 +228,10 @@ void PolySort(Polynomial poly) {
 		tail->coef = coef_o[i];
 		tail = tail->link;
 	}
-
+	delete[]new_order;
+	delete[]exp;
+	delete[]coef;
+	delete[]coef_o;
 }
 
 

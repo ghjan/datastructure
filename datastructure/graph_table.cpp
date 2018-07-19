@@ -108,6 +108,7 @@ void BFSGraph(Graph *graph) {
 			temp = temp->next;
 		}
 	}
+	delete[]visited;
 }
 
 //深度优先搜索  
@@ -127,6 +128,7 @@ void DFSGraph(Graph *graph) {
 		int index = graph->list[i].edgeNode->index;
 		DFS(graph, index, visited);
 	}
+	delete[]visited;
 }
 //深度搜索  
 void DFS(Graph *graph, int index, int *visited) {

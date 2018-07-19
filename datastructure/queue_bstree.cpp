@@ -11,7 +11,7 @@ using namespace std;
 bool InitQueue(LinkQueue_bst *Lp)
 {
 	cout << "Init Queue ..." << endl;
-	NodePtr p = (NodePtr)malloc(sizeof(Node));
+	NodePtr p = (NodePtr)malloc(sizeof(NodeWithkeys));
 	p->next = NULL;
 	Lp->front = Lp->rear = p;
 	return true;
@@ -83,7 +83,7 @@ bool GetHead(LinkQueue_bst LQ, ElemType *pe)
 bool EnQueue(LinkQueue_bst *Lp, ElemType Elem)
 {
 	//cout << "EnQueue Item " << Elem << endl;
-	NodePtr s = (NodePtr)malloc(sizeof(Node));
+	NodePtr s = (NodePtr)malloc(sizeof(NodeWithkeys));
 	s->data = Elem;
 	s->next = NULL;
 	Lp->rear->next = s;

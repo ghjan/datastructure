@@ -48,6 +48,7 @@
     <ClCompile Include="array.cpp" />
     <ClCompile Include="radixsort.cpp" />
     <ClCompile Include="agestastistics.cpp" />
+    <ClCompile Include="pat_judge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />

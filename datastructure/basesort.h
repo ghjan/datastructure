@@ -24,3 +24,14 @@ void MergeSort2(ElementType A[], int N); //归并排序（循环实现）
 //快速排序
 void QuickSort(ElementType A[], int N);
 
+////////排序使用的比较函数////////////
+
+//一般情况下，对结构体Node中的某几个键值keys排序
+int CompareKeys(const void *a, const void *b, int countKeys, int sorts[]);
+
+/* 比较两种键值：按key1降序排列；如果key1相等，则按key2升序排列 */
+int Compare2Keys(const void *a, const void *b);
+
+/* 比较三种键值：按key1降序，key2降序，key3升序排列 */
+int Compare3Keys(const void *a, const void *b);
+

@@ -42,6 +42,8 @@ int SolveAgeStastistics() {
 			printf("%d:%d\n", i, bucket[i]);
 		}
 	}
+	delete[]A;
+	delete[]bucket;
 	return 0;
 }
 

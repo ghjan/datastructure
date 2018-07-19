@@ -46,3 +46,4 @@ void QuickSortDemo();
 int RadixSortDemo();
 
 int SolveAgeStastistics();
+int SolvePatJudge();

@@ -95,6 +95,7 @@ int sort_ordered_demo()
 	int *exp1_o = clone_ordered(exp1, 7, b);
 	printf("另外一个数组，和上面下标同样调整以后的结果是：\n");
 	print_array(exp1_o, 7);
+	delete[]exp1_o;
 	return 0;
 
 }

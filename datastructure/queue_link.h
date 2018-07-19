@@ -2,10 +2,10 @@
 
 typedef int ElemType;
 
-typedef struct Node
+typedef struct NodeWithkeys
 {
 	ElemType data;
-	struct Node *next;
+	struct NodeWithkeys *next;
 } Node, *NodePtr;
 
 typedef struct

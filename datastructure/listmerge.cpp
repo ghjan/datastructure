@@ -24,12 +24,12 @@ List Read()
 	//char *number = NULL;
 	int data;
 	PtrToNode head = NULL, prev = NULL;
-	head = (PtrToNode)malloc(sizeof(Node));
+	head = (PtrToNode)malloc(sizeof(NodeWithkeys));
 	head->Next = NULL;
 	int count = 0;
 	bool isFirst = true;
 	while (scanf("%d", &data) != EOF) {
-		PtrToNode node = (PtrToNode)malloc(sizeof(Node));
+		PtrToNode node = (PtrToNode)malloc(sizeof(NodeWithkeys));
 		node->Data = data;
 		node->Next = NULL;
 		if (isFirst) { //第一个node就是head
@@ -53,7 +53,7 @@ void Print(List L) {
 		printf("NULL\n");
 		return;
 	}
-	Node* node;
+	NodeWithkeys* node;
 	bool isHead = true;
 	for (node = L->Next; node != NULL; node = node->Next) {
 		printf("%d ", node->Data);
@@ -89,7 +89,7 @@ List Merge(List L1, List L2)
 			}
 		}
 		if (isFirst) {
-			head = (PtrToNode)malloc(sizeof(Node));
+			head = (PtrToNode)malloc(sizeof(NodeWithkeys));
 			prev = head->Next = node;
 			isFirst = false;
 		}

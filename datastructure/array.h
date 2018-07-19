@@ -5,8 +5,8 @@
 #define MaxN 100000
 
 #define CUTOFF 100
-struct Node {
-	ElementType key1, key2;
+struct NodeWithkeys {
+	ElementType *keys;
 };
 
 
@@ -16,7 +16,7 @@ void GenerateArray(ElementType BaseA[], int N, int dataset);
 
 
 void PrintArray(int data[], int size);//打印数组
-void PrintNode(Node data[], int size);//打印节点
+void PrintNode(NodeWithkeys data[], int size, int countKeys);//打印节点
 
 int SplitArrayWithPivot(ElementType A[], int Left, int Right, int Pivot);
 

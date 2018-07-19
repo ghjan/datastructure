@@ -42,6 +42,7 @@ Position BuildTree(struct TreeNode T[], int N)
 				break;
 			}
 		}
+		delete[]check;
 	}
 	return Root;
 }

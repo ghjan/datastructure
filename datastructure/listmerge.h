@@ -3,8 +3,8 @@
 
 typedef int ElementType;
 
-typedef struct Node *PtrToNode;
-struct Node {
+typedef struct NodeWithkeys *PtrToNode;
+struct NodeWithkeys {
 	ElementType Data; /* 存储结点数据 */
 	PtrToNode   Next; /* 指向下一个结点的指针 */
 };
