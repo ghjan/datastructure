@@ -84,15 +84,6 @@ int incrementSeqFunc(int* incrementSeq, int length)
 	return i; // 排序轮数，每轮都使用（比上一轮）缩小的增量序列
 }
 
-void PrintArray(int data[], int size)
-{
-	int i;
-
-	for (i = 0; i < size; i++)
-		printf("%d ", data[i]);
-
-	printf("\n");
-}
 //使用Sedgewick增长序列的希尔排序
 void ShellSortSedgewick(ElementType array[] , int N)
 {
@@ -340,15 +331,6 @@ void QsortWithLibDemo2() {
 	delete []nodesA;
 }
 
-void PrintNode(Node data[], int size)
-{
-	int i;
-
-	for (i = 0; i < size; i++)
-		printf("(%d %d) ", data[i].key1, data[i].key2);
-
-	printf("\n");
-}
 
 /* 快速排序-自实现 */
 

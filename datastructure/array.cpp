@@ -57,3 +57,23 @@ void GenerateArray(ElementType BaseA[], int N, int dataset)
 		break;
 	}
 }
+
+void PrintArray(int data[], int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+		printf("%d ", data[i]);
+
+	printf("\n");
+}
+
+void PrintNode(Node data[], int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+		printf("(%d %d) ", data[i].key1, data[i].key2);
+
+	printf("\n");
+}

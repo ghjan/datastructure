@@ -3,9 +3,6 @@
 
 
 
-void PrintArray(int data[], int size);//打印数组
-void PrintNode(Node data[], int size);//打印节点
-
 //冒泡排序
 void Bubble_Sort(ElementType A[], int N);
 //插入排序

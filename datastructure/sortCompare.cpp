@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include <math.h>
 #include <stdlib.h>
-#include "basesort.h"
 #include "time.h"
+#include "basesort.h"
+#include "radixsort.h"
 
 double countTickForSort(void pf(ElementType[], int), ElementType A[], int N) {
 
@@ -13,11 +14,11 @@ double countTickForSort(void pf(ElementType[], int), ElementType A[], int N) {
 	return (double)(stop - start) / CLK_TCK;
 }
 
-void SortCompareDemo() {
+void sortCompare(int dataset) {
 	ElementType BaseA[MaxN], A[MaxN];
-	int dataset = 8;
 	GenerateArray(BaseA, MaxN, dataset);
 	printf("---------dataset:%d\n", dataset);
+
 	Copy(BaseA, A, MaxN);
 	double duration4 = countTickForSort(Bubble_Sort, A, MaxN);
 	printf("duration(Bubble_Sort) = %10.5e\n", duration4);
@@ -45,4 +46,24 @@ void SortCompareDemo() {
 	Copy(BaseA, A, MaxN);
 	duration1 = countTickForSort(MergeSort2, A, MaxN);
 	printf("duration(MergeSort2) = %10.5e\n", duration1);
+
+	Copy(BaseA, A, MaxN);
+	duration1 = countTickForSort(QuickSort, A, MaxN);
+	printf("duration(QuickSort) = %10.5e\n", duration1);
+
+	Copy(BaseA, A, MaxN);
+	duration1 = countTickForSort(LSDRadixSort, A, MaxN);
+	printf("duration(LSDRadixSort) = %10.5e\n", duration1);
+
+
+	Copy(BaseA, A, MaxN);
+	duration1 = countTickForSort(MSDRadixSort, A, MaxN);
+	printf("duration(MSDRadixSort) = %10.5e\n", duration1);
+}
+
+void SortCompareDemo() {
+	for (int dataset = 5; dataset <= 9; dataset++) {
+		sortCompare(dataset);
+	}
+
 }
