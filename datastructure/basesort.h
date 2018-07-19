@@ -1,10 +1,7 @@
 #pragma once
 #include "array.h"
 
-#define CUTOFF 100
-struct Node {
-	ElementType key1, key2;
-};
+
 
 void PrintArray(int data[], int size);//打印数组
 void PrintNode(Node data[], int size);//打印节点
@@ -29,3 +26,6 @@ void MergeSort2(ElementType A[], int N); //归并排序（循环实现）
 
 //快速排序
 void QuickSort(ElementType A[], int N);
+
+// 基数排序 - 次位优先
+void LSDRadixSort(ElementType A[], int N);
