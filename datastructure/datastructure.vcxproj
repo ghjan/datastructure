@@ -208,6 +208,7 @@
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="sixdegree.cpp" />
     <ClCompile Include="sortCompare.cpp" />
+    <ClCompile Include="sortwithswap.cpp" />
     <ClCompile Include="whichsortmethod.cpp" />
     <ClCompile Include="tree_tranverse_again.cpp" />
     <ClCompile Include="graph_lg.cpp" />

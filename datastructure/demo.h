@@ -18,7 +18,7 @@ int queue_bstree_demo(void);
 int bst_isomophic_demo();
 int BinarySearchTree_demo();
 int avl_demo();
-int bst_eq_demo();
+int SolveBSTEqual();
 int heap_demo();
 void buildHeapTest();
 int hufman_code_demo();
@@ -47,3 +47,4 @@ int RadixSortDemo();
 
 int SolveAgeStastistics();
 int SolvePatJudge();
+int SolveSortWithSwap();
