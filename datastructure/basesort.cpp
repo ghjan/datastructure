@@ -301,7 +301,7 @@ int CompareKeys(const void *a, const void *b, int countKeys, int sorts[])
 		if (((const struct NodeWithkeys*)a)->keys[i] == ((const struct NodeWithkeys*)b)->keys[i]) {
 			continue;
 		}
-		if (sorts[i] = 1) { //表示升序
+		if (sorts[i] == 1) { //表示升序
 			if (((const struct NodeWithkeys*)a)->keys[i] < ((const struct NodeWithkeys*)b)->keys[i]) {
 				k = -1;
 			}
