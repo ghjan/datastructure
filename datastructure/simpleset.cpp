@@ -70,7 +70,7 @@ void Check_network(SetType S, int n)
 		printf("There are %d components.\n", counter);
 }
 
-int network_connection_demo()
+int SolveNetworkConnection()
 {
 	SetType S;
 	int n;

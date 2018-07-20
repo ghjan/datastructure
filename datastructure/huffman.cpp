@@ -162,7 +162,7 @@ int WPL(PtrHuffman T, int Depth)
 /**
 * 测试程序入口
 */
-int hufman_code_demo() {
+int SolveHufmanCode() {
 	ElemType arr[] = { 3,9,5,12,6,15 };
 	PtrHuffman pRoot = createHuffmanTree(arr);  //返回指向哈夫曼树根节点的指针
 

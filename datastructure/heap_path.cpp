@@ -33,7 +33,7 @@ void Insert(int X)
 46 23 10
 26 10
 */
-int heap_path_demo()
+int SolveHeapPath()
 {
 	int n, m, x, i, j;
 	scanf("%d %d", &n, &m);

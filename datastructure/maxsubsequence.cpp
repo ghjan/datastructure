@@ -31,7 +31,7 @@ void test_subsequence(int count) {
 
 }
 
-void demo_maxsubsequence() {
+void SolveMaxsubsequence() {
 	int A[N];
 	for (int i = 0;i < N;i++) {
 		A[i] = rand() % 100;

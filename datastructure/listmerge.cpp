@@ -4,7 +4,7 @@
 #include <string.h>
 #include "listmerge.h"
 
-int listmerge_demo()
+int SolveListmerge()
 {
 	List L1, L2, L;
 	L1 = Read();

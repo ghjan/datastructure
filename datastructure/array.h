@@ -7,8 +7,8 @@
 #define CUTOFF 100
 struct NodeWithkeys {
 	ElementType *keys;
+	ElementType *values;
 };
-
 
 void Copy(ElementType source[], ElementType target[], int N);
 void Reverse(ElementType BaseA[], int N);

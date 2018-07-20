@@ -163,7 +163,7 @@ void freeTree(pTree tree) {
 }
 
 
-int bst_eq_demo() {
+int SolveBSTEqual() {
 	int N, L;
 	int i;
 	scanf("%d", &N);

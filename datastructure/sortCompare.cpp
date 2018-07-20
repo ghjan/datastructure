@@ -53,7 +53,7 @@ void sortCompare(int dataset) {
 	printf("duration(MSDRadixSort) = %10.5e\n", duration1);
 }
 
-void SortCompareDemo() {
+void SolveSortCompare() {
 	for (int dataset = 5; dataset <= 9; dataset++) {
 		sortCompare(dataset);
 	}

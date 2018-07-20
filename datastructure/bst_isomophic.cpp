@@ -65,7 +65,7 @@ int Isomorphic(TreeNode T1[], TreeNode T2[], Position R1, Position R2)
 		return 0;
 }
 
-int bst_isomophic_demo()
+int SolveBSTIsomophic()
 {
 	int n, m;
 	TreeNode T1[MaxTree], T2[MaxTree];

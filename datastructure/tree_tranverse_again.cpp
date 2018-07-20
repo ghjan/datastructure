@@ -23,7 +23,7 @@ void read_file_test(const char *file_name)
 	fclose(fptr);
 }
 
-int tree_tranverse_again_demo()
+int SolveTreeTranverseAgain()
 {
 	const char   *month[] = { "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec" };
 	BinarySearchTree *root = NULL;

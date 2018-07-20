@@ -33,7 +33,7 @@ void PrintSet(SetType S[],int n)
 		printf("%d %d\n", S[i].Data, S[i].Parent);
 	}
 }
-void set_demo()
+void SolveSet()
 {
 	int n;
 	int x, p;

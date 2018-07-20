@@ -78,7 +78,7 @@ void floyd(gLink g)
 	}
 }
 
-int floyd_demo()
+int SolveFloyd()
 {
 	gLink g = (gLink)malloc(sizeof(Graph));
 	createGraph(g);

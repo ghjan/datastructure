@@ -85,7 +85,7 @@ void readArray(ElementType A[], ElementType B[], int N)
 	}
 }
 
-void WhichSortMethodDemo() {
+void SolveWhichSortMethod() {
 	int N;
 	scanf("%d", &N);
 	ElementType *A = new int[N];

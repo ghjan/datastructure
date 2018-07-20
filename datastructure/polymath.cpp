@@ -337,7 +337,7 @@ int polymul_demo(Polynomial p1, Polynomial p2)
 	return 0;
 }
 
-int polymath_demo()
+int SolvePolymath()
 {
 	Polynomial p1 = ReadPoly();
 	Polynomial p2 = ReadPoly();

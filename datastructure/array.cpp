@@ -75,7 +75,7 @@ void PrintNode(NodeWithkeys data[], int size, int countKeys)
 	for (i = 0; i < size; i++) {
 		printf("(");
 		for (int j = 0; j < countKeys; j++)
-			printf("%d", data[i].keys[j]);
+			printf("%d ", data[i].keys[j]);
 		printf(") ");
 
 	}

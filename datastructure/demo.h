@@ -10,18 +10,18 @@ int queue_sequence_demo(void);
 
 int polyadd_demo(Polynomial p1, Polynomial p2);
 int polymul_demo(Polynomial p1, Polynomial p2);
-int polymath_demo();
+int SolvePolymath();
 
 int BinarySearch_demo();
 void bstree_demo();
 int queue_bstree_demo(void);
-int bst_isomophic_demo();
+int SolveBSTIsomophic();
 int BinarySearchTree_demo();
 int avl_demo();
-int bst_eq_demo();
+int SolveBSTEqual();
 int heap_demo();
 void buildHeapTest();
-int hufman_code_demo();
+int SolveHufmanCode();
 int heap_path_demo();
 void set_demo();
 int network_connection_demo();
@@ -29,15 +29,15 @@ int graph_matrix_demo();
 void tree_tranverse_again_demo();
 void tree_tranverse_again_demo1();
 int graph_queue_link_demo(void);
-int floyd_demo();
+int SolveFloyd();
 int sixdegree_demo();
 
-int listmerge_demo();
+int SolveListmerge();
 void demo_maxsubsequence();
 int gnode_queue_link_demo(void);
 int ShellSortSedgewickDemo();
-void SortCompareDemo();
-void WhichSortMethodDemo();
+void SolveSortCompare();
+void SolveWhichSortMethod();
 
 void QsortWithLibDemo1();
 void QsortWithLibDemo2();
@@ -47,3 +47,4 @@ int RadixSortDemo();
 
 int SolveAgeStastistics();
 int SolvePatJudge();
+int SolveSortWithSwap();
