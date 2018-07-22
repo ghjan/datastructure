@@ -50,8 +50,9 @@
     <ClCompile Include="agestastistics.cpp" />
     <ClCompile Include="pat_judge.cpp" />
     <ClCompile Include="sortwithswap.cpp" />
-    <ClCompile Include="hashtable.cpp" />
     <ClCompile Include="phonechat.cpp" />
+    <ClCompile Include="inthashtable.cpp" />
+    <ClCompile Include="hashtable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -94,6 +95,8 @@
     <ClInclude Include="whichsortmethod.h" />
     <ClInclude Include="array.h" />
     <ClInclude Include="radixsort.h" />
+    <ClInclude Include="phonechat.h" />
+    <ClInclude Include="inthashtable.h" />
     <ClInclude Include="hashtable.h" />
   </ItemGroup>
   <ItemGroup>

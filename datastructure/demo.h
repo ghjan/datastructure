@@ -49,3 +49,4 @@ int SolveAgeStastistics();
 int SolvePatJudge();
 int SolveSortWithSwap();
 int SolvePhoneChat();
+int SolveHashing();

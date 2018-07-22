@@ -159,8 +159,10 @@
     <ClInclude Include="demo.h" />
     <ClInclude Include="floyd.h" />
     <ClInclude Include="hashtable.h" />
+    <ClInclude Include="inthashtable.h" />
     <ClInclude Include="listmerge.h" />
     <ClInclude Include="array.h" />
+    <ClInclude Include="phonechat.h" />
     <ClInclude Include="radixsort.h" />
     <ClInclude Include="shortestpath.h" />
     <ClInclude Include="sixdegree.h" />
@@ -194,6 +196,7 @@
     <ClCompile Include="agestastistics.cpp" />
     <ClCompile Include="basesort.cpp" />
     <ClCompile Include="hashtable.cpp" />
+    <ClCompile Include="inthashtable.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
