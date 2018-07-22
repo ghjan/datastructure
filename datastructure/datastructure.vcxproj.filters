@@ -50,6 +50,7 @@
     <ClCompile Include="agestastistics.cpp" />
     <ClCompile Include="pat_judge.cpp" />
     <ClCompile Include="sortwithswap.cpp" />
+    <ClCompile Include="hashtable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binary_search.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="whichsortmethod.h" />
     <ClInclude Include="array.h" />
     <ClInclude Include="radixsort.h" />
+    <ClInclude Include="hashtable.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tree_tranverse_again.txt" />

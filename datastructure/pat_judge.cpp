@@ -9,33 +9,14 @@ using namespace std;
 
 #define MaxNForNode 10000
 
-<<<<<<< HEAD
-void readPATData(NodeWithkeys* nodes, int *N, int *K, int *M)
-=======
 NodeWithkeys* readPATData(int *mapNode, int *N, int *K, int *M)
->>>>>>> c84aa7cf2aab8cd89095217814eecb177534614a
 {
 	//N个user，K个problem，M个记录
 	scanf("%d %d %d", N, K, M);
 
 	int data;
 	int *fullMarks = new int[*K];
-<<<<<<< HEAD
-	for (int i = 0; i < *K && scanf("%d", &data) != EOF; i++) {
-		fullMarks[i] = data;
-	}
 
-	nodes = (NodeWithkeys *)malloc(*M * sizeof(struct NodeWithkeys)); //new NodeWithkeys[*M];
-	int userid, problemId, score;
-	for (int j = 0; j < *M && scanf("%d %d %d", &userid, &problemId, &score) != EOF; j++) {
-		nodes[j].keys=(int *)malloc(3 * sizeof(int));
-		nodes[j].keys[0] = userid;
-		nodes[j].keys[1] = problemId;
-		nodes[j].keys[2] = score;
-
-	}
-
-=======
 	for (int i = 0; i < *K && scanf(" %d", &data); i++) {
 		fullMarks[i] = data;
 	}
@@ -78,7 +59,6 @@ NodeWithkeys* readPATData(int *mapNode, int *N, int *K, int *M)
 		}
 	}
 	return nodes;
->>>>>>> c84aa7cf2aab8cd89095217814eecb177534614a
 }
 
 int length(char*s) {
@@ -98,6 +78,7 @@ void PrintPatJudge(NodeWithkeys *data, int N, int K)
 {
 	int i;
 	int rank = 0;
+	int samerank = 0;
 	int scorePrev = 99999999;
 	char * address = NULL;
 	for (i = 0; i < N; i++) {
@@ -105,11 +86,15 @@ void PrintPatJudge(NodeWithkeys *data, int N, int K)
 		int score = data[i].keys[0];
 		if (scorePrev > score) {
 			scorePrev = score;
-			rank++;
+			rank += samerank + 1;
+			samerank = 0;
+		}
+		else {
+			samerank++;
 		}
 		printf("%d ", rank);
 		address = convertToAddress(data[i].keys[2]);
-		printf("%s ", address); //convertToAddress(data[i].keys[2])  printf(" %d ", data[i].keys[2])
+		printf("%s ", address);
 		printf("%d ", data[i].keys[0]);
 		for (int j = 0; j < K; j++) {
 			if (data[i].values[j] > 0) {
@@ -128,17 +113,6 @@ void PrintPatJudge(NodeWithkeys *data, int N, int K)
 
 int SolvePatJudge() {
 	/*--------------- 对结构体Node中的键值key1,key2排序 ---------------*/
-<<<<<<< HEAD
-	int N, K, M;
-	NodeWithkeys *nodesA = NULL;
-	readPATData(nodesA, &N, &K, &M);
-
-	/* 调用接口 */
-	qsort(nodesA, M, sizeof(struct NodeWithkeys), Compare3Keys);
-	PrintNode(nodesA, M, 3);
-
-	free(nodesA);
-=======
 	int N, K, M; //user数量，problem数量，M条记录
 	int *mapNode = (int *)malloc(MaxNForNode * sizeof(int));
 	for (int i = 0; i < MaxNForNode; i++) {
@@ -149,7 +123,6 @@ int SolvePatJudge() {
 	/* 调用接口 */
 	qsort(nodesA, N, sizeof(struct NodeWithkeys), Compare3Keys);
 	PrintPatJudge(nodesA, N, K);
->>>>>>> c84aa7cf2aab8cd89095217814eecb177534614a
 
 	for (int i = 0; i < N; i++) {
 		if (NULL != nodesA->keys)
