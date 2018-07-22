@@ -35,6 +35,21 @@ Position Find(IntHashTable H, ElementType Key)
 	}
 	return NewPos; /* 此时NewPos或者是Key的位置，或者是一个空单元的位置（表示找不到）*/
 }
+
+Position FindLinear(IntHashTable H, ElementType Key)
+{
+	Position CurrentPos, NewPos;
+	int CNum = 0; /* 记录冲突次数 */
+	NewPos = CurrentPos = Hash(Key, H->TableSize); /* 初始散列位置 */
+												   /* 当该位置的单元非空，并且不是要找的元素时，发生冲突 */
+	while (H->Cells[NewPos].Info != Empty && H->Cells[NewPos].Data != Key && CNum < H->TableSize) {
+		NewPos = (CurrentPos + CNum + 1) % H->TableSize;
+	}
+	if (CNum >= H->TableSize) {
+		return -1;
+	}
+	return NewPos; /* 此时NewPos或者是Key的位置，或者是一个空单元的位置（表示找不到）*/
+}
 Position Insert(IntHashTable H, ElementType Key)
 {
 	Position Pos = Find(H, Key); /* 先检查Key是否已经存在 */
@@ -50,6 +65,21 @@ Position Insert(IntHashTable H, ElementType Key)
 	}
 }
 
+Position InsertLinear(IntHashTable H, ElementType Key)
+{
+	Position Pos = FindLinear(H, Key); /* 先检查Key是否已经存在 */
+	if (Pos < 0)
+		return Pos;
+	if (H->Cells[Pos].Info != Legitimate) { /* 如果这个单元没有被占，说明Key可以插入在此 */
+		H->Cells[Pos].Info = Legitimate;
+		H->Cells[Pos].Data = Key;
+		return Pos;
+	}
+	else {
+		printf("键值已存在");
+		return Pos;
+	}
+}
 IntHashTable CreateHashTable(int TableSize)
 {
 	IntHashTable H;
@@ -60,8 +90,11 @@ IntHashTable CreateHashTable(int TableSize)
 	/* 声明单元数组 */
 	H->Cells = (Cell *)malloc(H->TableSize * sizeof(Cell));
 	/* 初始化单元状态为“空单元” */
-	for (i = 0; i < H->TableSize; i++)
+	for (i = 0; i < H->TableSize; i++) {
+		H->Cells[i].Data = -1;
 		H->Cells[i].Info = Empty;
+	}
+
 	return H;
 }
 
@@ -96,4 +129,18 @@ int SolveHashing()
 		}
 	}
 	return 0;
+}
+
+int SolveHashingHard() {
+	//reverse
+	//hashtable的大小是N
+	int N;
+	scanf("%d", &N);
+	IntHashTable table = CreateHashTable(N - 1);
+	for (int j = 0; j < N; j++) {
+		int key;
+		scanf("%d", &key);
+	}
+	return 0;
+
 }
