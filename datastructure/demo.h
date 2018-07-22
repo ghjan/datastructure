@@ -48,3 +48,4 @@ int RadixSortDemo();
 int SolveAgeStastistics();
 int SolvePatJudge();
 int SolveSortWithSwap();
+int SolvePhoneChat();

@@ -206,6 +206,7 @@
     <ClCompile Include="floyd.cpp" />
     <ClCompile Include="listmerge.cpp" />
     <ClCompile Include="pat_judge.cpp" />
+    <ClCompile Include="phonechat.cpp" />
     <ClCompile Include="radixsort.cpp" />
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="sixdegree.cpp" />
