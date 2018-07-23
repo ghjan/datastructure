@@ -130,17 +130,3 @@ int SolveHashing()
 	}
 	return 0;
 }
-
-int SolveHashingHard() {
-	//reverse
-	//hashtable的大小是N
-	int N;
-	scanf("%d", &N);
-	IntHashTable table = CreateHashTable(N - 1);
-	for (int j = 0; j < N; j++) {
-		int key;
-		scanf("%d", &key);
-	}
-	return 0;
-
-}

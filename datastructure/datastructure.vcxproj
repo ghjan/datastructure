@@ -160,6 +160,7 @@
     <ClInclude Include="floyd.h" />
     <ClInclude Include="hashtable.h" />
     <ClInclude Include="inthashtable.h" />
+    <ClInclude Include="linkedhashtable.h" />
     <ClInclude Include="listmerge.h" />
     <ClInclude Include="array.h" />
     <ClInclude Include="phonechat.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="basesort.cpp" />
     <ClCompile Include="hashtable.cpp" />
     <ClCompile Include="inthashtable.cpp" />
+    <ClCompile Include="linkedhashtable.cpp" />
     <ClCompile Include="maxsubsequence.cpp" />
     <ClCompile Include="avl.cpp" />
     <ClCompile Include="BinarySearchTree.cpp" />
@@ -210,6 +212,7 @@
     <ClCompile Include="listmerge.cpp" />
     <ClCompile Include="pat_judge.cpp" />
     <ClCompile Include="phonechat.cpp" />
+    <ClCompile Include="qq.cpp" />
     <ClCompile Include="radixsort.cpp" />
     <ClCompile Include="shortestpath.cpp" />
     <ClCompile Include="sixdegree.cpp" />
